@@ -36,7 +36,7 @@
 
     body {
       font-family: Arial, Helvetica, sans-serif;
-      background: var(--navy);
+      background: linear-gradient(180deg, var(--navy-3) 0%, var(--navy) 100%);
       color: var(--white);
       line-height: 1.6;
     }
@@ -77,7 +77,7 @@
       z-index: 999;
       background: rgba(8, 18, 36, 0.96);
       backdrop-filter: blur(8px);
-      border-bottom: 2px solid var(--yellow);
+      border-bottom: 1px solid rgba(244, 196, 0, 0.22);
     }
 
     .nav-wrap {
@@ -85,22 +85,53 @@
       justify-content: space-between;
       align-items: center;
       gap: 20px;
-      padding: 16px 0;
+      padding: 14px 0;
     }
 
     .brand {
       display: inline-flex;
       align-items: center;
-      padding: 10px 16px;
-      background: #ffffff;
-      border-radius: 14px;
-      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.22);
+      gap: 12px;
     }
 
-    .brand img {
-      height: 72px;
-      width: auto;
-      display: block;
+    .brand-badge {
+      width: 46px;
+      height: 46px;
+      border-radius: 12px;
+      background: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.2);
+      flex-shrink: 0;
+      overflow: hidden;
+    }
+
+    .brand-badge img {
+      max-width: 82%;
+      max-height: 82%;
+      object-fit: contain;
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.1;
+    }
+
+    .brand-text strong {
+      color: var(--white);
+      font-size: 1.05rem;
+      letter-spacing: 0.02em;
+    }
+
+    .brand-text span {
+      color: var(--yellow);
+      font-size: 0.8rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-top: 4px;
     }
 
     nav {
@@ -134,20 +165,39 @@
     }
 
     .hero {
-      min-height: 92vh;
-      display: flex;
-      align-items: center;
+      padding: 70px 0 34px;
       background:
-        linear-gradient(rgba(8,18,36,0.72), rgba(8,18,36,0.9)),
-        url("Secure storage and yard space offering.png") center/cover no-repeat;
+        radial-gradient(circle at top right, rgba(244,196,0,0.15), transparent 26%),
+        radial-gradient(circle at top left, rgba(255,255,255,0.05), transparent 22%);
     }
 
     .hero-grid {
       display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
+      grid-template-columns: 1.1fr 0.9fr;
       gap: 28px;
-      align-items: center;
-      padding: 72px 0;
+      align-items: stretch;
+    }
+
+    .hero-copy,
+    .hero-panel,
+    .trust-card,
+    .service-card,
+    .card,
+    .price-card,
+    .contact-card,
+    .location-copy,
+    .testimonial,
+    .faq-item,
+    .lead-form,
+    .map-info {
+      background: rgba(18, 33, 63, 0.94);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-copy {
+      padding: 34px;
     }
 
     .eyebrow {
@@ -165,18 +215,47 @@
     }
 
     .hero h1 {
-      font-size: clamp(2.5rem, 5vw, 4.9rem);
+      font-size: clamp(2.4rem, 5vw, 4.6rem);
       line-height: 1.02;
       margin-bottom: 18px;
-      max-width: 900px;
+      max-width: 820px;
     }
 
-    .hero h1 span {
+    .hero h1 span,
+    .section-title,
+    .hero-panel h3,
+    .service-body h3,
+    .trust-card h3,
+    .location-copy h3,
+    .lead-form h3,
+    .contact-card h3,
+    .faq-item h3,
+    .footer-grid h4,
+    .testimonial strong {
       color: var(--yellow);
     }
 
-    .hero p {
+    .hero p,
+    .section-subtitle,
+    .service-body p,
+    .card p,
+    .price-card p,
+    .contact-card p,
+    .contact-list,
+    .location-copy p,
+    .testimonial p,
+    .faq-item p,
+    .hero-panel p,
+    .form-note,
+    .footer-grid p,
+    .footer-grid a,
+    .reply-fast,
+    .mini-contact,
+    .quick-price span {
       color: var(--soft);
+    }
+
+    .hero p {
       font-size: 1.08rem;
       max-width: 760px;
       margin-bottom: 24px;
@@ -186,11 +265,10 @@
       display: flex;
       flex-wrap: wrap;
       gap: 14px;
-      margin-bottom: 16px;
+      margin-bottom: 14px;
     }
 
     .reply-fast {
-      color: var(--muted);
       font-size: 0.95rem;
       font-weight: 700;
       margin-bottom: 24px;
@@ -205,6 +283,7 @@
       font-weight: 800;
       border: 2px solid transparent;
       transition: 0.25s ease;
+      cursor: pointer;
     }
 
     .btn-primary {
@@ -229,14 +308,16 @@
     }
 
     .hero-points,
-    .audience-tags {
+    .audience-tags,
+    .map-points {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
     }
 
     .hero-points span,
-    .audience-tags span {
+    .audience-tags span,
+    .map-points span {
       background: rgba(255,255,255,0.08);
       border: 1px solid var(--border);
       padding: 9px 13px;
@@ -245,81 +326,43 @@
       font-weight: 700;
     }
 
-    .hero-card,
-    .lead-form,
-    .testimonial,
-    .faq-item,
-    .card,
-    .service-card,
-    .price-card,
-    .contact-card,
-    .location-copy,
-    .trust-card {
-      background: rgba(18, 33, 63, 0.94);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
+    .hero-panel {
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
     }
 
-    .hero-card {
-      padding: 26px;
+    .hero-panel-image {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+      border-bottom: 1px solid rgba(244,196,0,0.18);
     }
 
-    .hero-card h3,
-    .lead-form h3,
-    .contact-card h3,
-    .location-copy h3,
-    .faq-item h3,
-    .testimonial strong,
-    .service-body h3,
-    .trust-card h3 {
-      color: var(--yellow);
+    .hero-panel-body {
+      padding: 24px;
     }
 
-    .hero-card h3 {
-      font-size: 1.45rem;
+    .hero-panel h3 {
+      font-size: 1.5rem;
       margin-bottom: 10px;
     }
 
-    .hero-card p {
-      color: var(--soft);
-      font-size: 0.98rem;
-      margin-bottom: 16px;
-    }
-
-    .hero-card .quick-prices {
+    .quick-prices {
       display: grid;
       gap: 12px;
-      margin: 16px 0 22px;
+      margin: 18px 0 20px;
     }
 
     .quick-price {
       background: rgba(255,255,255,0.05);
       border-radius: 14px;
       padding: 14px 16px;
-      border: 1px solid rgba(255,255,255,0.05);
     }
 
-    .quick-price strong {
-      display: block;
+    .quick-price strong,
+    .price {
       color: var(--yellow);
-      font-size: 1.05rem;
-      margin-bottom: 3px;
-    }
-
-    .quick-price span,
-    .mini-contact,
-    .service-body p,
-    .section-subtitle,
-    .card p,
-    .price-card p,
-    .testimonial p,
-    .faq-item p,
-    .contact-list,
-    .contact-card p,
-    .location-copy p,
-    .location-note {
-      color: var(--soft);
     }
 
     .mini-contact p {
@@ -327,7 +370,8 @@
     }
 
     .mini-contact a,
-    .contact-card a {
+    .contact-card a,
+    .footer-grid a:hover {
       color: var(--yellow);
       font-weight: 800;
     }
@@ -352,7 +396,6 @@
 
     .section-title {
       text-align: center;
-      color: var(--yellow);
       font-size: clamp(2rem, 4vw, 2.9rem);
       margin-bottom: 12px;
     }
@@ -378,9 +421,12 @@
     }
 
     .trust-cards,
-    .features-grid,
     .testimonials-grid {
       grid-template-columns: repeat(3, 1fr);
+    }
+
+    .features-grid {
+      grid-template-columns: repeat(4, 1fr);
     }
 
     .services-grid,
@@ -406,14 +452,9 @@
     .location-copy,
     .testimonial,
     .faq-item,
-    .lead-form {
+    .lead-form,
+    .map-info {
       padding: 26px;
-    }
-
-    .trust-card h3,
-    .card h4 {
-      margin-bottom: 10px;
-      font-size: 1.15rem;
     }
 
     .service-card {
@@ -428,11 +469,6 @@
 
     .service-body {
       padding: 22px;
-    }
-
-    .service-body h3 {
-      margin-bottom: 8px;
-      font-size: 1.35rem;
     }
 
     .service-list,
@@ -451,19 +487,6 @@
       align-items: center;
     }
 
-    .location-copy h3 {
-      font-size: 1.7rem;
-      margin-bottom: 14px;
-    }
-
-    .location-copy p {
-      margin-bottom: 12px;
-    }
-
-    .location-points {
-      margin: 18px 0 24px;
-    }
-
     .location-image img {
       width: 100%;
       height: 100%;
@@ -478,10 +501,6 @@
       text-align: center;
     }
 
-    .pricing-grid {
-      align-items: stretch;
-    }
-
     .price-card h3 {
       font-size: 1.45rem;
       margin-bottom: 8px;
@@ -489,7 +508,6 @@
 
     .price {
       font-size: 2.2rem;
-      color: var(--yellow);
       font-weight: 900;
       margin-bottom: 14px;
     }
@@ -533,7 +551,6 @@
     }
 
     .lead-form p {
-      color: var(--soft);
       margin-bottom: 20px;
     }
 
@@ -561,6 +578,10 @@
       font: inherit;
     }
 
+    .form-row select option {
+      color: #000;
+    }
+
     .form-row input::placeholder,
     .form-row textarea::placeholder {
       color: #ccd5e5;
@@ -571,15 +592,9 @@
       resize: vertical;
     }
 
-    .form-note {
-      color: var(--muted);
-      font-size: 0.9rem;
-      margin-top: 12px;
-    }
-
     .cta {
       background:
-        linear-gradient(rgba(8,18,36,0.86), rgba(8,18,36,0.86)),
+        linear-gradient(rgba(8,18,36,0.9), rgba(8,18,36,0.9)),
         url("Brightwey Ltd open yard and storage2.png") center/cover no-repeat;
       border-top: 2px solid var(--yellow);
       border-bottom: 2px solid var(--yellow);
@@ -602,39 +617,20 @@
     .map-info {
       max-width: 900px;
       margin: 0 auto 24px;
-      padding: 22px;
-      background: rgba(18, 33, 63, 0.94);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
       text-align: center;
     }
 
     .map-info h3 {
-      color: var(--yellow);
       margin-bottom: 10px;
       font-size: 1.35rem;
     }
 
     .map-info p {
-      color: var(--soft);
       margin-bottom: 14px;
     }
 
     .map-points {
-      display: flex;
       justify-content: center;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-
-    .map-points span {
-      background: rgba(255,255,255,0.08);
-      border: 1px solid var(--border);
-      padding: 9px 13px;
-      border-radius: 999px;
-      font-size: 0.92rem;
-      font-weight: 700;
     }
 
     .map-box {
@@ -669,22 +665,6 @@
       grid-template-columns: 1.2fr 1fr 1fr;
       gap: 24px;
       margin-bottom: 20px;
-    }
-
-    .footer-grid h4 {
-      color: var(--yellow);
-      margin-bottom: 10px;
-    }
-
-    .footer-grid p,
-    .footer-grid a {
-      color: var(--soft);
-      display: block;
-      margin-bottom: 8px;
-    }
-
-    .footer-grid a:hover {
-      color: var(--yellow);
     }
 
     .copyright {
@@ -729,11 +709,11 @@
       }
 
       .hero {
-        min-height: auto;
+        padding-top: 44px;
       }
 
-      .hero-grid {
-        padding: 56px 0;
+      .hero-copy {
+        padding: 26px;
       }
 
       .hero-actions {
@@ -757,8 +737,10 @@
         grid-template-columns: 1fr;
       }
 
-      .location-image img {
-        min-height: 260px;
+      .location-image img,
+      .hero-panel-image {
+        min-height: 240px;
+        height: 240px;
       }
     }
   </style>
@@ -776,7 +758,13 @@
   <header>
     <div class="container nav-wrap">
       <a class="brand" href="#top" aria-label="Brightwey Secure Storage home">
-        <img src="Brightwey%20Secure%20Storage%20logo%20design.png" alt="Brightwey Secure Storage logo" />
+        <span class="brand-badge">
+          <img src="Brightwey%20Secure%20Storage%20logo%20design.png" alt="Brightwey Secure Storage logo" />
+        </span>
+        <span class="brand-text">
+          <strong>Brightwey Secure Storage</strong>
+          <span>Canterbury</span>
+        </span>
       </a>
 
       <nav>
@@ -793,7 +781,7 @@
 
   <section class="hero" id="top">
     <div class="container hero-grid">
-      <div>
+      <div class="hero-copy">
         <span class="eyebrow">Canterbury • CT2 0EU • High-Demand Commercial Area</span>
         <h1>Secure <span>Container Storage</span>, Yard Space & HGV Parking in Canterbury</h1>
         <p>
@@ -816,29 +804,32 @@
         </div>
       </div>
 
-      <div class="hero-card">
-        <h3>Quick Availability & Pricing</h3>
-        <p>Clear starting prices with simple access for business and personal customers.</p>
+      <div class="hero-panel">
+        <img class="hero-panel-image" src="Row of shipping containers in daylight2.png" alt="Brightwey secure container storage" />
+        <div class="hero-panel-body">
+          <h3>Quick Availability & Pricing</h3>
+          <p>Clear starting prices with simple access for business and personal customers.</p>
 
-        <div class="quick-prices">
-          <div class="quick-price">
-            <strong>Container Storage</strong>
-            <span>From £35 per week</span>
+          <div class="quick-prices">
+            <div class="quick-price">
+              <strong>Container Storage</strong>
+              <span>From £35 per week</span>
+            </div>
+            <div class="quick-price">
+              <strong>Open Yard Space</strong>
+              <span>From £250 per week</span>
+            </div>
+            <div class="quick-price">
+              <strong>HGV Parking</strong>
+              <span>From £25 per night</span>
+            </div>
           </div>
-          <div class="quick-price">
-            <strong>Open Yard Space</strong>
-            <span>From £250 per week</span>
-          </div>
-          <div class="quick-price">
-            <strong>HGV Parking</strong>
-            <span>From £25 per night</span>
-          </div>
-        </div>
 
-        <div class="mini-contact">
-          <p><strong>Phone:</strong> <a href="tel:07931086447">07931 086447</a></p>
-          <p><strong>Email:</strong> <a href="mailto:info@brightwey.co.uk">info@brightwey.co.uk</a></p>
-          <p><strong>Address:</strong> Eureka Industrial Estate, Staines Hill, Canterbury, CT2 0EU</p>
+          <div class="mini-contact">
+            <p><strong>Phone:</strong> <a href="tel:07931086447">07931 086447</a></p>
+            <p><strong>Email:</strong> <a href="mailto:info@brightwey.co.uk">info@brightwey.co.uk</a></p>
+            <p><strong>Address:</strong> Eureka Industrial Estate, Staines Hill, Canterbury, CT2 0EU</p>
+          </div>
         </div>
       </div>
     </div>
@@ -1276,4 +1267,5 @@
 
 </body>
 </html>
+
 
