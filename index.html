@@ -11,6 +11,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Brightwey Secure Storage" />
   <meta name="format-detection" content="telephone=yes" />
+
   <style>
     :root {
       --navy: #0b1630;
@@ -25,9 +26,9 @@
       --border: rgba(244, 196, 0, 0.18);
       --shadow: 0 18px 42px rgba(0, 0, 0, 0.26);
       --radius: 22px;
-      --max: 1200px;
-      --section-pad: clamp(64px, 8vw, 96px);
-      --card-pad: clamp(22px, 3vw, 30px);
+      --max: 1180px;
+      --section-pad: clamp(56px, 7vw, 92px);
+      --card-pad: clamp(20px, 3vw, 28px);
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -40,6 +41,7 @@
       -webkit-font-smoothing: antialiased;
       text-rendering: optimizeLegibility;
     }
+
     img { max-width: 100%; display: block; }
     a { color: inherit; text-decoration: none; }
     button, input, select, textarea { font: inherit; }
@@ -70,15 +72,15 @@
       position: sticky;
       top: 0;
       z-index: 1000;
-      background: rgba(8, 18, 36, 0.94);
-      backdrop-filter: blur(10px);
+      background: rgba(8, 18, 36, 0.92);
+      backdrop-filter: blur(12px);
       border-bottom: 1px solid rgba(244,196,0,0.14);
     }
     .nav-wrap {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: 18px;
+      gap: 16px;
       padding: 14px 0;
     }
     .brand {
@@ -89,10 +91,10 @@
     .brand-text {
       display: flex;
       flex-direction: column;
-      line-height: 1.02;
+      line-height: 1.03;
     }
     .brand-text strong {
-      font-size: 1.16rem;
+      font-size: 1.14rem;
       color: var(--white);
       letter-spacing: 0.01em;
     }
@@ -130,6 +132,7 @@
       background: var(--yellow);
       color: var(--navy-3);
     }
+
     .nav-btn {
       padding: 11px 16px;
       border-radius: 999px;
@@ -138,7 +141,7 @@
 
     .hero {
       position: relative;
-      padding: clamp(42px, 6vw, 72px) 0 42px;
+      padding: clamp(40px, 6vw, 72px) 0 40px;
       background: url("Brightwey Ltd open yard and storage2.png") center/cover no-repeat;
       overflow: hidden;
     }
@@ -148,8 +151,8 @@
       inset: 0;
       background: linear-gradient(
         to bottom,
-        rgba(8,18,36,0.42) 0%,
-        rgba(8,18,36,0.78) 42%,
+        rgba(8,18,36,0.38) 0%,
+        rgba(8,18,36,0.76) 42%,
         rgba(8,18,36,0.95) 100%
       );
     }
@@ -158,15 +161,15 @@
       z-index: 2;
     }
 
-    .hero-grid {
+    .hero-shell {
       display: grid;
       grid-template-columns: minmax(0, 1.08fr) minmax(320px, 0.92fr);
       gap: 24px;
-      align-items: stretch;
+      align-items: start;
     }
 
-    .panel,
     .hero-copy,
+    .hero-photo-card,
     .hero-form,
     .trust-card,
     .service-card,
@@ -178,7 +181,8 @@
     .faq-item,
     .map-info,
     .cta-box,
-    .step-card {
+    .step-card,
+    .panel {
       background: rgba(18, 33, 63, 0.92);
       border: 1px solid var(--border);
       border-radius: var(--radius);
@@ -187,6 +191,7 @@
     }
 
     .hero-copy,
+    .hero-photo-card,
     .hero-form,
     .trust-card,
     .benefit-card,
@@ -202,6 +207,11 @@
       padding: var(--card-pad);
     }
 
+    .hero-left {
+      display: grid;
+      gap: 18px;
+    }
+
     .eyebrow {
       display: inline-block;
       background: rgba(244,196,0,0.14);
@@ -209,25 +219,19 @@
       color: var(--yellow);
       padding: 8px 12px;
       border-radius: 999px;
-      font-size: 0.82rem;
+      font-size: 0.8rem;
       font-weight: 800;
       letter-spacing: 0.08em;
       text-transform: uppercase;
-      margin-bottom: 16px;
+      margin-bottom: 14px;
     }
 
     h1 {
-      font-size: clamp(2.35rem, 5vw, 4.8rem);
+      font-size: clamp(2.2rem, 5vw, 4.6rem);
       line-height: 1.02;
-      margin-bottom: 14px;
-      max-width: 860px;
+      margin-bottom: 10px;
+      max-width: 720px;
       text-shadow: 0 4px 20px rgba(0,0,0,0.6);
-    }
-    .hero-subheadline {
-      color: var(--white);
-      font-size: clamp(1.02rem, 2vw, 1.18rem);
-      font-weight: 700;
-      margin-bottom: 16px;
     }
 
     h1 span,
@@ -244,17 +248,17 @@
     .cta-box h2,
     .trust-card h3,
     .footer-grid h4,
-    .stat strong,
-    .quick-bullets strong,
     .step-number,
     .step-card h3,
     .price-chip strong,
-    .trust-chip strong {
+    .trust-chip strong,
+    .photo-badge strong {
       color: var(--yellow);
     }
 
-    .hero-copy p,
+    .hero-subheadline,
     .section-subtitle,
+    .hero-copy p,
     .service-body p,
     .benefit-card p,
     .price-card p,
@@ -266,23 +270,30 @@
     .map-info p,
     .footer-grid p,
     .footer-grid a,
-    .hero-note,
     .form-note,
-    .quick-bullets span,
     .cta-box p,
     .trust-card p,
     .subcopy,
     .step-text,
     .price-chip span,
-    .trust-chip span {
+    .trust-chip span,
+    .photo-badge span {
       color: var(--soft);
     }
 
-    .hero-copy p {
-      font-size: 1.02rem;
-      max-width: 760px;
-      margin-top: 18px;
+    .hero-subheadline {
+      color: var(--white);
+      font-size: clamp(1rem, 2vw, 1.14rem);
+      font-weight: 700;
+      margin-bottom: 16px;
     }
+
+    .hero-copy p {
+      font-size: 1rem;
+      max-width: 640px;
+      margin-top: 16px;
+    }
+
     .hero-actions {
       display: flex;
       flex-wrap: wrap;
@@ -355,31 +366,65 @@
       line-height: 1.35;
     }
 
+    .hero-photo-card {
+      overflow: hidden;
+      padding: 0;
+    }
+    .hero-photo-wrap {
+      position: relative;
+      min-height: 280px;
+      height: 100%;
+    }
+    .hero-photo-wrap img {
+      width: 100%;
+      height: 100%;
+      min-height: 280px;
+      object-fit: cover;
+      filter: contrast(1.05) brightness(0.92);
+    }
+    .hero-photo-wrap::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to top,
+        rgba(8,18,36,0.88) 0%,
+        rgba(8,18,36,0.25) 50%,
+        rgba(8,18,36,0.08) 100%
+      );
+    }
+    .photo-badge {
+      position: absolute;
+      left: 18px;
+      right: 18px;
+      bottom: 18px;
+      z-index: 2;
+      background: rgba(8,18,36,0.78);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 14px 16px;
+      backdrop-filter: blur(6px);
+    }
+    .photo-badge strong {
+      display: block;
+      font-size: 1rem;
+      margin-bottom: 4px;
+    }
+    .photo-badge span {
+      display: block;
+      font-size: 0.9rem;
+      font-weight: 700;
+    }
+
     .hero-form {
       display: flex;
       flex-direction: column;
       justify-content: center;
     }
     .hero-form h2 {
-      font-size: 1.65rem;
+      font-size: 1.55rem;
       margin-bottom: 10px;
     }
-    .quick-bullets {
-      display: grid;
-      gap: 12px;
-      margin: 18px 0 22px;
-    }
-    .quick-bullets div {
-      background: rgba(255,255,255,0.05);
-      border-radius: 14px;
-      padding: 14px 16px;
-      border: 1px solid rgba(255,255,255,0.05);
-    }
-    .quick-bullets strong { display: block; margin-bottom: 4px; }
-    .mini-contact p { margin: 8px 0; color: var(--soft); }
-    .mini-contact a,
-    .contact-card a,
-    .footer-grid a:hover { color: var(--yellow); font-weight: 800; }
 
     .trust-strip {
       background: var(--yellow);
@@ -390,9 +435,9 @@
       grid-template-columns: repeat(4, 1fr);
       gap: 16px;
       text-align: center;
-      padding: 13px 0;
+      padding: 12px 0;
       font-weight: 800;
-      font-size: 0.92rem;
+      font-size: 0.9rem;
     }
 
     section { padding: var(--section-pad) 0; }
@@ -446,6 +491,7 @@
       filter: contrast(1.05) brightness(0.95);
     }
     .service-body { padding: 24px; }
+
     .service-body h3,
     .benefit-card h3,
     .price-card h3,
@@ -453,7 +499,11 @@
     .location-copy h3,
     .faq-item h3,
     .map-info h3,
-    .trust-card h3 { font-size: 1.32rem; margin-bottom: 10px; }
+    .trust-card h3 {
+      font-size: 1.32rem;
+      margin-bottom: 10px;
+    }
+
     .service-list,
     .price-card ul,
     .location-points,
@@ -491,6 +541,7 @@
       font-size: 0.94rem;
       font-weight: 700;
     }
+
     .badge {
       display: inline-block;
       background: rgba(244,196,0,0.12);
@@ -504,6 +555,22 @@
       margin-bottom: 14px;
     }
 
+    .service-tags,
+    .map-points {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .service-tags span,
+    .map-points span {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid var(--border);
+      padding: 9px 13px;
+      border-radius: 999px;
+      font-size: 0.91rem;
+      font-weight: 700;
+    }
+
     .location-image img,
     .gallery-grid img {
       width: 100%;
@@ -515,6 +582,7 @@
       filter: contrast(1.05) brightness(0.95);
     }
     .location-image img { height: 100%; min-height: 420px; }
+
     .review-card p { margin-bottom: 14px; font-style: italic; }
 
     .cta-box {
@@ -536,7 +604,6 @@
       border: 1px solid rgba(255,255,255,0.16);
       background: rgba(255,255,255,0.06);
       color: var(--white);
-      font: inherit;
       min-height: 52px;
       outline: none;
     }
@@ -553,15 +620,8 @@
     .form-note { font-size: 0.9rem; margin-top: 12px; }
 
     .map-info { max-width: 900px; margin: 0 auto 24px; text-align: center; }
-    .map-points { justify-content: center; margin-top: 12px; display: flex; flex-wrap: wrap; gap: 10px; }
-    .map-points span {
-      background: rgba(255,255,255,0.08);
-      border: 1px solid var(--border);
-      padding: 9px 13px;
-      border-radius: 999px;
-      font-size: 0.91rem;
-      font-weight: 700;
-    }
+    .map-points { justify-content: center; margin-top: 12px; }
+
     .map-box {
       border-radius: 16px;
       overflow: hidden;
@@ -586,7 +646,12 @@
       margin-bottom: 20px;
     }
     .footer-grid a { display: block; margin-bottom: 8px; color: var(--soft); }
-    .copyright { text-align: center; padding-top: 18px; border-top: 1px solid rgba(255,255,255,0.08); }
+    .footer-grid a:hover { color: var(--yellow); }
+    .copyright {
+      text-align: center;
+      padding-top: 18px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
 
     .sticky-cta {
       position: fixed;
@@ -612,13 +677,18 @@
     .sticky-quote { background: var(--green); color: var(--white); }
 
     @media (max-width: 1100px) {
-      .hero-grid,
+      .hero-shell,
       .location-wrap,
       .form-grid,
       .faq-grid,
       .footer-grid {
         grid-template-columns: 1fr;
       }
+
+      .hero-form {
+        order: 3;
+      }
+
       .services-grid,
       .pricing-grid,
       .benefits-grid,
@@ -630,12 +700,20 @@
       .trust-row {
         grid-template-columns: 1fr 1fr;
       }
+
+      .hero-photo-wrap {
+        min-height: 340px;
+      }
     }
 
     @media (max-width: 760px) {
       body { padding-bottom: 82px; }
+
+      .container { width: min(var(--max), calc(100% - 22px)); }
+
       .nav-wrap { flex-direction: column; align-items: stretch; }
       .brand { justify-content: center; margin: 0 auto; }
+
       nav {
         justify-content: flex-start;
         gap: 10px;
@@ -660,9 +738,20 @@
         background-position: 62% center;
       }
 
+      .eyebrow {
+        font-size: 0.74rem;
+        margin-bottom: 10px;
+      }
+
+      .hero-copy p {
+        display: none;
+      }
+
       .hero-actions { flex-direction: column; }
       .btn { width: 100%; }
 
+      .price-row,
+      .trust-row,
       .trust-grid,
       .services-grid,
       .benefits-grid,
@@ -672,10 +761,13 @@
       .reviews-grid,
       .steps-grid,
       .faq-grid,
-      .form-grid,
-      .price-row,
-      .trust-row {
+      .form-grid {
         grid-template-columns: 1fr;
+      }
+
+      .hero-photo-wrap,
+      .hero-photo-wrap img {
+        min-height: 230px;
       }
 
       .service-card img,
@@ -685,17 +777,25 @@
         min-height: 220px;
       }
 
+      .topbar .container {
+        gap: 8px;
+        font-size: 0.8rem;
+      }
+
+      .trust-grid {
+        grid-template-columns: 1fr;
+      }
+
       .sticky-cta {
         left: 12px;
         right: 12px;
         bottom: 12px;
         justify-content: stretch;
       }
-      .sticky-cta a { flex: 1 1 0; text-align: center; }
-
-      .eyebrow { margin-bottom: 12px; }
-      .topbar .container { gap: 8px; font-size: 0.8rem; }
-      .hero-copy p { display: none; }
+      .sticky-cta a {
+        flex: 1 1 0;
+        text-align: center;
+      }
     }
   </style>
 </head>
@@ -731,52 +831,64 @@
   </header>
 
   <section class="hero" id="top">
-    <div class="container hero-grid">
-      <div class="hero-copy">
-        <span class="eyebrow">Limited space available • High demand location</span>
-        <h1>Need Space in Canterbury?<br><span>Secure Storage, Yard Space & HGV Parking</span></h1>
-        <div class="hero-subheadline">From £35/week • 24/7 access • Fast quotes</div>
+    <div class="container hero-shell">
+      <div class="hero-left">
+        <div class="hero-copy">
+          <span class="eyebrow">Limited space available • High demand location</span>
+          <h1>Need Space in Canterbury?<br><span>Secure Storage, Yard Space & HGV Parking</span></h1>
+          <div class="hero-subheadline">From £35/week • 24/7 access • Fast quotes</div>
 
-        <div class="price-row">
-          <div class="price-chip">
-            <strong>£35+</strong>
-            <span>Container storage</span>
+          <div class="price-row">
+            <div class="price-chip">
+              <strong>£35+</strong>
+              <span>Container storage</span>
+            </div>
+            <div class="price-chip">
+              <strong>£250+</strong>
+              <span>Yard space</span>
+            </div>
+            <div class="price-chip">
+              <strong>£25+</strong>
+              <span>HGV parking</span>
+            </div>
           </div>
-          <div class="price-chip">
-            <strong>£250+</strong>
-            <span>Yard space</span>
+
+          <div class="trust-row">
+            <div class="trust-chip">
+              <strong>24/7</strong>
+              <span>Access</span>
+            </div>
+            <div class="trust-chip">
+              <strong>CCTV</strong>
+              <span>Monitored site</span>
+            </div>
+            <div class="trust-chip">
+              <strong>Easy</strong>
+              <span>Vehicle access</span>
+            </div>
+            <div class="trust-chip">
+              <strong>Fast</strong>
+              <span>Quote response</span>
+            </div>
           </div>
-          <div class="price-chip">
-            <strong>£25+</strong>
-            <span>HGV parking</span>
+
+          <div class="hero-actions">
+            <a href="tel:07931086447" class="btn btn-primary">Call Now – Check Availability</a>
+            <a href="#enquire" class="btn btn-secondary">Get Instant Quote</a>
           </div>
+
+          <p>Brightwey Secure Storage provides practical space for trades, logistics, commercial vehicles, stock, tools, materials and overflow storage in Canterbury.</p>
         </div>
 
-        <div class="trust-row">
-          <div class="trust-chip">
-            <strong>24/7</strong>
-            <span>Access</span>
-          </div>
-          <div class="trust-chip">
-            <strong>CCTV</strong>
-            <span>Monitored site</span>
-          </div>
-          <div class="trust-chip">
-            <strong>Easy</strong>
-            <span>Vehicle access</span>
-          </div>
-          <div class="trust-chip">
-            <strong>Fast</strong>
-            <span>Quote response</span>
+        <div class="hero-photo-card">
+          <div class="hero-photo-wrap">
+            <img src="Trucks lined up in industrial yard 3.png" alt="Brightwey yard, vehicle access and HGV parking" />
+            <div class="photo-badge">
+              <strong>Real Canterbury site</strong>
+              <span>Secure yard space, storage and commercial vehicle access</span>
+            </div>
           </div>
         </div>
-
-        <div class="hero-actions">
-          <a href="tel:07931086447" class="btn btn-primary">Call Now – Check Availability</a>
-          <a href="#enquire" class="btn btn-secondary">Get Instant Quote</a>
-        </div>
-
-        <p>Brightwey Secure Storage provides practical space for trades, logistics, commercial vehicles, stock, tools, materials and overflow storage in Canterbury.</p>
       </div>
 
       <div class="hero-form">
@@ -864,10 +976,10 @@
           <div class="service-body">
             <h3>Container Storage</h3>
             <p>Secure container storage for stock, tools, equipment and general storage. Simple, practical space with easy access when you need it.</p>
-            <div class="service-tags" style="display:flex; flex-wrap:wrap; gap:10px;">
-              <span style="background:rgba(255,255,255,0.08); border:1px solid var(--border); padding:9px 13px; border-radius:999px; font-size:0.91rem; font-weight:700;">From £35/week</span>
-              <span style="background:rgba(255,255,255,0.08); border:1px solid var(--border); padding:9px 13px; border-radius:999px; font-size:0.91rem; font-weight:700;">Drive-up access</span>
-              <span style="background:rgba(255,255,255,0.08); border:1px solid var(--border); padding:9px 13px; border-radius:999px; font-size:0.91rem; font-weight:700;">Business or personal</span>
+            <div class="service-tags">
+              <span>From £35/week</span>
+              <span>Drive-up access</span>
+              <span>Business or personal</span>
             </div>
             <ul class="service-list">
               <li>Good for stock, tools and equipment</li>
@@ -882,10 +994,10 @@
           <div class="service-body">
             <h3>Open Yard Space</h3>
             <p>Flexible outdoor yard space for materials, vehicles, plant and commercial use. Ideal for businesses needing extra working or storage space.</p>
-            <div class="service-tags" style="display:flex; flex-wrap:wrap; gap:10px;">
-              <span style="background:rgba(255,255,255,0.08); border:1px solid var(--border); padding:9px 13px; border-radius:999px; font-size:0.91rem; font-weight:700;">From £250/week</span>
-              <span style="background:rgba(255,255,255,0.08); border:1px solid var(--border); padding:9px 13px; border-radius:999px; font-size:0.91rem; font-weight:700;">Commercial use</span>
-              <span style="background:rgba(255,255,255,0.08); border:1px solid var(--border); padding:9px 13px; border-radius:999px; font-size:0.91rem; font-weight:700;">Flexible terms</span>
+            <div class="service-tags">
+              <span>From £250/week</span>
+              <span>Commercial use</span>
+              <span>Flexible terms</span>
             </div>
             <ul class="service-list">
               <li>Useful for operational overflow</li>
@@ -900,10 +1012,10 @@
           <div class="service-body">
             <h3>HGV Parking</h3>
             <p>Secure parking for HGVs, vans and commercial vehicles with straightforward access. Suitable for short stays or regular use.</p>
-            <div class="service-tags" style="display:flex; flex-wrap:wrap; gap:10px;">
-              <span style="background:rgba(255,255,255,0.08); border:1px solid var(--border); padding:9px 13px; border-radius:999px; font-size:0.91rem; font-weight:700;">From £25/night</span>
-              <span style="background:rgba(255,255,255,0.08); border:1px solid var(--border); padding:9px 13px; border-radius:999px; font-size:0.91rem; font-weight:700;">Easy access</span>
-              <span style="background:rgba(255,255,255,0.08); border:1px solid var(--border); padding:9px 13px; border-radius:999px; font-size:0.91rem; font-weight:700;">Short or regular stays</span>
+            <div class="service-tags">
+              <span>From £25/night</span>
+              <span>Easy access</span>
+              <span>Short or regular stays</span>
             </div>
             <ul class="service-list">
               <li>Practical for busy operators</li>
