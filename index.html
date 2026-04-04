@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>Container Storage, Yard Space & HGV Parking Canterbury | Brightwey Secure Storage</title>
-  <meta name="description" content="Brightwey Secure Storage provides secure container storage, open yard space and HGV parking in Canterbury. Fast quotes, 24/7 access, practical commercial space and clear pricing." />
+  <meta name="description" content="Brightwey Secure Storage offers secure container storage, open yard space and HGV parking in Canterbury. Fast quotes, practical access, flexible terms and clear pricing." />
   <meta name="theme-color" content="#0b1630" />
   <meta property="og:title" content="Brightwey Secure Storage | Container Storage, Yard Space & HGV Parking Canterbury" />
   <meta property="og:description" content="Secure container storage, open yard space and HGV parking in Canterbury with fast quotes, practical access and flexible terms." />
@@ -21,12 +21,12 @@
       --white: #ffffff;
       --soft: #d9dfeb;
       --muted: #aeb9cd;
-      --green: #1fb66b;
+      --green: #18a564;
       --border: rgba(244, 196, 0, 0.18);
       --shadow: 0 18px 42px rgba(0, 0, 0, 0.26);
       --radius: 22px;
       --max: 1200px;
-      --section-pad: clamp(64px, 8vw, 92px);
+      --section-pad: clamp(68px, 8vw, 96px);
       --card-pad: clamp(22px, 3vw, 32px);
     }
 
@@ -163,7 +163,7 @@
     }
 
     .hero {
-      padding: clamp(52px, 7vw, 74px) 0 42px;
+      padding: clamp(56px, 7vw, 76px) 0 42px;
       background:
         radial-gradient(circle at top right, rgba(244,196,0,0.18), transparent 24%),
         radial-gradient(circle at left top, rgba(255,255,255,0.05), transparent 28%);
@@ -185,7 +185,6 @@
     .price-card,
     .contact-card,
     .location-copy,
-    .testimonial,
     .faq-item,
     .map-info,
     .cta-box {
@@ -202,10 +201,10 @@
     .price-card,
     .contact-card,
     .location-copy,
-    .testimonial,
     .faq-item,
     .map-info,
-    .cta-box {
+    .cta-box,
+    .surface {
       padding: var(--card-pad);
     }
 
@@ -247,7 +246,6 @@
     .location-copy h3,
     .faq-item h3,
     .map-info h3,
-    .testimonial strong,
     .cta-box h2,
     .trust-card h3,
     .footer-grid h4,
@@ -264,7 +262,6 @@
     .contact-card p,
     .contact-list,
     .location-copy p,
-    .testimonial p,
     .faq-item p,
     .map-info p,
     .footer-grid p,
@@ -455,15 +452,13 @@
     .pricing-grid,
     .gallery-grid,
     .contact-grid,
-    .testimonials-grid,
     .faq-grid,
     .form-grid {
       display: grid;
       gap: 22px;
     }
 
-    .trust-grid-cards,
-    .testimonials-grid {
+    .trust-grid-cards {
       grid-template-columns: repeat(3, 1fr);
     }
 
@@ -566,11 +561,6 @@
     .location-image img {
       height: 100%;
       min-height: 420px;
-    }
-
-    .testimonial p {
-      font-style: italic;
-      margin-bottom: 14px;
     }
 
     .cta-box {
@@ -738,7 +728,6 @@
       .benefits-grid,
       .gallery-grid,
       .trust-grid-cards,
-      .testimonials-grid,
       .hero-stats {
         grid-template-columns: 1fr 1fr;
       }
@@ -779,7 +768,6 @@
       .gallery-grid,
       .contact-grid,
       .trust-grid-cards,
-      .testimonials-grid,
       .faq-grid,
       .form-grid,
       .hero-stats {
@@ -848,7 +836,7 @@
         <a href="#why-us">Why Us</a>
         <a href="#prices">Prices</a>
         <a href="#location">Location</a>
-        <a href="#reviews">Reviews</a>
+        <a href="#reviews">Uses</a>
         <a href="#contact">Contact</a>
         <a class="nav-btn" href="#enquire">Get a Quote</a>
       </nav>
@@ -987,7 +975,7 @@
         </div>
         <div class="trust-card">
           <h3>Commercial Positioning</h3>
-          <p>The page speaks directly to trades, transport, logistics, contractors and operational storage needs.</p>
+          <p>Built to appeal to trades, transport, logistics, contractors and operational storage needs.</p>
         </div>
         <div class="trust-card">
           <h3>Easy to Act</h3>
@@ -1062,10 +1050,10 @@
     </div>
   </section>
 
-  <section>
+  <section id="reviews">
     <div class="container">
       <h2 class="section-title">Ideal For</h2>
-      <p class="section-subtitle">This makes the page feel targeted and relevant to the visitors most likely to convert.</p>
+      <p class="section-subtitle">This page is designed for the most common local storage and space requirements.</p>
       <div class="audience-tags" style="justify-content:center;">
         <span>Trades & Contractors</span>
         <span>Builders & Installers</span>
@@ -1081,13 +1069,13 @@
 
   <section>
     <div class="container">
-      <h2 class="section-title">Why Customers Choose Brightwey</h2>
-      <p class="section-subtitle">Benefit-led wording sells harder than generic filler. This section is designed to do that.</p>
+      <h2 class="section-title">Why Customers Use Brightwey</h2>
+      <p class="section-subtitle">Benefit-led copy helps customers understand the practical value of the site quickly.</p>
 
       <div class="benefits-grid">
         <div class="benefit-card">
           <h3>Secure Local Site</h3>
-          <p>Customers want confidence that their goods, materials or vehicles are kept in a reliable local location.</p>
+          <p>Customers want confidence that goods, materials or vehicles are kept in a reliable local location.</p>
         </div>
         <div class="benefit-card">
           <h3>Fast Decision-Making</h3>
@@ -1095,11 +1083,11 @@
         </div>
         <div class="benefit-card">
           <h3>Built for Commercial Use</h3>
-          <p>The page makes it clear this is practical space for real operational needs, not vague brochure copy.</p>
+          <p>It is obvious this is practical space for real operational needs, not vague brochure copy.</p>
         </div>
         <div class="benefit-card">
           <h3>Easy to Enquire</h3>
-          <p>Call, email and form options give users multiple ways to act immediately.</p>
+          <p>Call, email and form options give visitors multiple ways to act immediately.</p>
         </div>
       </div>
     </div>
@@ -1109,7 +1097,7 @@
     <div class="container">
       <h2 class="section-title">Simple Pricing</h2>
       <p style="text-align:center; color:var(--yellow); font-weight:800; margin-top:-10px; margin-bottom:20px;">Check current availability today</p>
-      <p class="section-subtitle">Strong local pages do not hide pricing. Clear starting prices increase trust and enquiries.</p>
+      <p class="section-subtitle">Clear starting prices increase trust and help customers move faster.</p>
 
       <div class="pricing-grid">
         <div class="price-card">
@@ -1162,7 +1150,7 @@
           Brightwey Secure Storage is based at Eureka Industrial Estate, Staines Hill, Canterbury, CT2 0EU. That gives customers a clear, easy-to-find location for container storage, yard use and HGV parking.
         </p>
         <p>
-          In a busy area, location is a sales point. This section makes it obvious that the site is practical, accessible and relevant for commercial users.
+          In a busy area, location matters. This section makes it obvious that the site is practical, accessible and relevant for commercial users.
         </p>
 
         <ul class="location-points">
@@ -1183,36 +1171,14 @@
     </div>
   </section>
 
-  <section id="reviews">
-    <div class="container">
-      <h2 class="section-title">Customer Confidence</h2>
-      <p class="section-subtitle">Trusted by local trade, transport and commercial customers looking for practical space in Canterbury.</p>
-
-      <div class="testimonials-grid">
-        <div class="testimonial">
-          <p>“Straightforward to deal with, practical access and a useful site for our equipment and stock.”</p>
-          <strong>Local builder, Canterbury</strong>
-        </div>
-        <div class="testimonial">
-          <p>“Good location, easy arrangement and a simple solution when we needed extra operational space.”</p>
-          <strong>Transport company, Kent</strong>
-        </div>
-        <div class="testimonial">
-          <p>“Helpful option for short-term parking and storage in Canterbury where space is not always easy to find.”</p>
-          <strong>Repeat trade customer</strong>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <section id="map">
     <div class="container">
       <h2 class="section-title">Find Our Yard</h2>
-      <p class="section-subtitle">Local service pages convert better when the location is obvious, visible and easy to verify.</p>
+      <p class="section-subtitle">Make the location obvious, visible and easy to verify.</p>
 
       <div class="map-info">
         <h3>Easy-to-Find Canterbury Yard</h3>
-        <p>Make the location a selling point. Visitors should instantly see where you are, what area you serve and how quickly they can get directions.</p>
+        <p>Visitors should instantly see where you are, what area you serve and how quickly they can get directions.</p>
         <div class="map-points">
           <span>Eureka Industrial Estate</span>
           <span>Staines Hill</span>
@@ -1242,7 +1208,7 @@
   <section>
     <div class="container">
       <h2 class="section-title">Gallery</h2>
-      <p class="section-subtitle">Use your strongest real photos here. Good images can make a big difference to trust and conversions.</p>
+      <p class="section-subtitle">Use strong real photos to show access, scale, yard space and storage condition.</p>
 
       <div class="gallery-grid">
         <img src="Brightwey Ltd open yard and storage2.png" alt="Brightwey open yard and commercial space" />
@@ -1255,7 +1221,7 @@
 
   <section class="quote-band" id="enquire">
     <div class="container form-grid">
-      <div class="surface" style="padding: var(--card-pad); border-radius: var(--radius); border: 1px solid var(--border); box-shadow: var(--shadow); background: rgba(18, 33, 63, 0.96);">
+      <div class="surface">
         <h2 style="color: var(--yellow); margin-bottom: 10px; font-size: 1.6rem;">Get a Fast Quote</h2>
         <p class="subcopy" style="margin-bottom: 20px;">Tell us what space you need and we’ll get back to you quickly.</p>
 
@@ -1388,6 +1354,8 @@
   </div>
 </body>
 </html>
+
+
 
 
 
