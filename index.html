@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Brightwey Secure Storage | Container Storage, Open Yard & HGV Parking</title>
+  <title>Brightwey Secure Storage | Container Storage, Yard Space & HGV Parking Canterbury</title>
   <meta
     name="description"
-    content="Brightwey Secure Storage offers container storage, open yard space and HGV parking in Canterbury with secure access, flexible terms and competitive prices."
+    content="Container storage from £35 per week, open yard space from £250 per week and HGV parking from £25 per night in Canterbury, Kent. Brightwey Secure Storage, Eureka Industrial Estate, Staines Hill, CT2 0EU."
   />
   <style>
     :root {
@@ -16,11 +16,11 @@
       --yellow: #f4c400;
       --yellow-light: #ffd94d;
       --white: #ffffff;
-      --text-soft: #d8deea;
-      --border: rgba(244, 196, 0, 0.28);
-      --shadow: 0 12px 35px rgba(0, 0, 0, 0.28);
+      --soft: #d9dfeb;
+      --border: rgba(244, 196, 0, 0.25);
+      --shadow: 0 14px 36px rgba(0, 0, 0, 0.28);
       --radius: 18px;
-      --max-width: 1200px;
+      --max: 1200px;
     }
 
     * {
@@ -50,8 +50,24 @@
     }
 
     .container {
-      width: min(var(--max-width), calc(100% - 32px));
+      width: min(var(--max), calc(100% - 32px));
       margin: 0 auto;
+    }
+
+    .topbar {
+      background: var(--yellow);
+      color: var(--navy-3);
+      font-weight: 800;
+      font-size: 0.95rem;
+    }
+
+    .topbar .container {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      padding: 10px 0;
+      text-align: center;
     }
 
     header {
@@ -65,8 +81,8 @@
 
     .nav-wrap {
       display: flex;
-      align-items: center;
       justify-content: space-between;
+      align-items: center;
       gap: 20px;
       padding: 16px 0;
     }
@@ -75,7 +91,6 @@
       display: flex;
       align-items: center;
       gap: 14px;
-      min-width: 0;
     }
 
     .brand img {
@@ -84,14 +99,14 @@
     }
 
     .brand-text h1 {
-      font-size: 1.2rem;
+      font-size: 1.15rem;
       color: var(--yellow);
-      letter-spacing: 0.08em;
       line-height: 1.1;
+      letter-spacing: 0.08em;
     }
 
     .brand-text p {
-      color: var(--text-soft);
+      color: var(--soft);
       font-size: 0.85rem;
     }
 
@@ -113,7 +128,7 @@
       color: var(--yellow);
     }
 
-    .nav-cta {
+    .nav-btn {
       background: var(--yellow);
       color: var(--navy-3);
       padding: 11px 16px;
@@ -121,23 +136,22 @@
       font-weight: 800;
     }
 
-    .nav-cta:hover {
+    .nav-btn:hover {
       background: var(--yellow-light);
     }
 
     .hero {
-      position: relative;
-      min-height: 88vh;
+      min-height: 90vh;
       display: flex;
       align-items: center;
       background:
-        linear-gradient(rgba(8, 18, 36, 0.76), rgba(8, 18, 36, 0.84)),
+        linear-gradient(rgba(8,18,36,0.74), rgba(8,18,36,0.85)),
         url("Secure storage and yard space offering.png") center/cover no-repeat;
     }
 
     .hero-grid {
       display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
+      grid-template-columns: 1.15fr 0.85fr;
       gap: 28px;
       align-items: center;
       padding: 70px 0;
@@ -145,17 +159,21 @@
 
     .eyebrow {
       display: inline-block;
+      background: rgba(244, 196, 0, 0.14);
+      border: 1px solid var(--border);
       color: var(--yellow);
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
+      padding: 8px 12px;
+      border-radius: 999px;
       font-size: 0.82rem;
-      margin-bottom: 16px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
     }
 
     .hero h2 {
-      font-size: clamp(2.2rem, 5vw, 4.3rem);
-      line-height: 1.05;
+      font-size: clamp(2.4rem, 5vw, 4.7rem);
+      line-height: 1.03;
       margin-bottom: 18px;
     }
 
@@ -164,9 +182,9 @@
     }
 
     .hero p {
-      color: var(--text-soft);
+      color: var(--soft);
       font-size: 1.08rem;
-      max-width: 700px;
+      max-width: 720px;
       margin-bottom: 24px;
     }
 
@@ -174,7 +192,7 @@
       display: flex;
       flex-wrap: wrap;
       gap: 14px;
-      margin-bottom: 26px;
+      margin-bottom: 20px;
     }
 
     .btn {
@@ -184,8 +202,8 @@
       padding: 14px 22px;
       border-radius: 12px;
       font-weight: 800;
-      transition: 0.25s ease;
       border: 2px solid transparent;
+      transition: 0.25s ease;
     }
 
     .btn-primary {
@@ -205,63 +223,82 @@
     }
 
     .btn-secondary:hover {
-      background: rgba(244, 196, 0, 0.08);
+      background: rgba(244,196,0,0.08);
       transform: translateY(-2px);
     }
 
     .hero-points {
       display: flex;
       flex-wrap: wrap;
-      gap: 12px;
+      gap: 10px;
     }
 
     .hero-points span {
-      background: rgba(255, 255, 255, 0.08);
+      background: rgba(255,255,255,0.08);
       border: 1px solid var(--border);
-      color: var(--white);
-      padding: 9px 14px;
+      padding: 9px 13px;
       border-radius: 999px;
       font-size: 0.92rem;
       font-weight: 700;
     }
 
     .hero-card {
-      background: rgba(18, 33, 63, 0.92);
+      background: rgba(18, 33, 63, 0.94);
       border: 1px solid var(--border);
-      border-radius: 24px;
+      border-radius: 22px;
       padding: 26px;
       box-shadow: var(--shadow);
     }
 
     .hero-card h3 {
       color: var(--yellow);
-      font-size: 1.5rem;
-      margin-bottom: 12px;
+      font-size: 1.45rem;
+      margin-bottom: 14px;
     }
 
-    .hero-card p {
-      margin-bottom: 16px;
-      font-size: 0.98rem;
-    }
-
-    .hero-card ul {
-      list-style: none;
+    .hero-card .quick-prices {
       display: grid;
-      gap: 10px;
+      gap: 12px;
+      margin: 16px 0 22px;
     }
 
-    .hero-card li {
-      background: rgba(255, 255, 255, 0.05);
-      border-radius: 12px;
-      padding: 12px 14px;
-      color: var(--text-soft);
+    .quick-price {
+      background: rgba(255,255,255,0.05);
+      border-radius: 14px;
+      padding: 14px 16px;
+      border: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .quick-price strong {
+      display: block;
+      color: var(--yellow);
+      font-size: 1.05rem;
+      margin-bottom: 3px;
+    }
+
+    .quick-price span {
+      color: var(--soft);
+      font-size: 0.95rem;
       font-weight: 700;
     }
 
-    .trust-bar {
+    .mini-contact {
+      color: var(--soft);
+      font-size: 0.96rem;
+    }
+
+    .mini-contact p {
+      margin: 8px 0;
+    }
+
+    .mini-contact a {
+      color: var(--yellow);
+      font-weight: 800;
+    }
+
+    .trust-strip {
       background: var(--yellow);
       color: var(--navy-3);
-      padding: 14px 0;
     }
 
     .trust-grid {
@@ -269,6 +306,7 @@
       grid-template-columns: repeat(4, 1fr);
       gap: 16px;
       text-align: center;
+      padding: 15px 0;
       font-weight: 800;
     }
 
@@ -278,23 +316,24 @@
 
     .section-title {
       text-align: center;
-      margin-bottom: 14px;
       color: var(--yellow);
-      font-size: clamp(1.8rem, 4vw, 2.7rem);
+      font-size: clamp(1.9rem, 4vw, 2.8rem);
+      margin-bottom: 12px;
     }
 
     .section-subtitle {
       text-align: center;
       max-width: 760px;
       margin: 0 auto 38px;
-      color: var(--text-soft);
-      font-size: 1.04rem;
+      color: var(--soft);
+      font-size: 1.03rem;
     }
 
     .services-grid,
     .features-grid,
     .pricing-grid,
-    .gallery-grid {
+    .gallery-grid,
+    .contact-grid {
       display: grid;
       gap: 22px;
     }
@@ -303,8 +342,8 @@
       grid-template-columns: repeat(3, 1fr);
     }
 
+    .card,
     .service-card,
-    .feature-card,
     .price-card,
     .contact-card {
       background: var(--navy-2);
@@ -323,18 +362,18 @@
       object-fit: cover;
     }
 
-    .service-card-body {
+    .service-body {
       padding: 22px;
     }
 
-    .service-card h3 {
+    .service-body h3 {
       color: var(--yellow);
-      margin-bottom: 10px;
+      margin-bottom: 8px;
       font-size: 1.35rem;
     }
 
-    .service-card p {
-      color: var(--text-soft);
+    .service-body p {
+      color: var(--soft);
       margin-bottom: 16px;
     }
 
@@ -342,64 +381,67 @@
       list-style: none;
       display: grid;
       gap: 9px;
-      color: var(--white);
       font-weight: 700;
       font-size: 0.95rem;
     }
 
-    .about-wrap {
+    .location-box {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 26px;
       align-items: center;
     }
 
-    .about-box {
-      background: var(--navy-2);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
+    .location-copy {
       padding: 28px;
-      box-shadow: var(--shadow);
     }
 
-    .about-box h3 {
+    .location-copy h3 {
       color: var(--yellow);
-      margin-bottom: 14px;
-      font-size: 1.7rem;
-    }
-
-    .about-box p {
-      color: var(--text-soft);
+      font-size: 1.6rem;
       margin-bottom: 14px;
     }
 
-    .about-image img {
+    .location-copy p {
+      color: var(--soft);
+      margin-bottom: 12px;
+    }
+
+    .location-points {
+      list-style: none;
+      display: grid;
+      gap: 10px;
+      margin: 18px 0 24px;
+      font-weight: 700;
+    }
+
+    .location-image img {
+      width: 100%;
+      height: 100%;
+      min-height: 360px;
+      object-fit: cover;
       border-radius: var(--radius);
       border: 2px solid var(--yellow);
       box-shadow: var(--shadow);
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      min-height: 380px;
     }
 
     .features-grid {
       grid-template-columns: repeat(4, 1fr);
     }
 
-    .feature-card {
+    .card {
       padding: 24px;
       text-align: center;
     }
 
-    .feature-card h4 {
+    .card h4 {
       color: var(--yellow);
       margin-bottom: 10px;
-      font-size: 1.15rem;
+      font-size: 1.12rem;
     }
 
-    .feature-card p {
-      color: var(--text-soft);
+    .card p {
+      color: var(--soft);
       font-size: 0.96rem;
     }
 
@@ -409,44 +451,42 @@
 
     .price-card {
       padding: 28px 24px;
-      position: relative;
     }
 
-    .price-tag {
+    .badge {
       display: inline-block;
-      background: rgba(244, 196, 0, 0.12);
+      background: rgba(244,196,0,0.12);
       color: var(--yellow);
-      font-size: 0.82rem;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
       padding: 6px 10px;
       border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
       margin-bottom: 16px;
     }
 
     .price-card h3 {
-      font-size: 1.45rem;
+      font-size: 1.4rem;
       margin-bottom: 8px;
-      color: var(--white);
     }
 
     .price {
-      font-size: 2.2rem;
-      font-weight: 900;
+      font-size: 2.15rem;
       color: var(--yellow);
+      font-weight: 900;
       margin-bottom: 14px;
     }
 
     .price small {
+      color: var(--soft);
       font-size: 0.95rem;
-      color: var(--text-soft);
       font-weight: 700;
     }
 
     .price-card p {
-      color: var(--text-soft);
-      margin-bottom: 18px;
+      color: var(--soft);
+      margin-bottom: 16px;
     }
 
     .price-card ul {
@@ -454,10 +494,6 @@
       display: grid;
       gap: 10px;
       margin-bottom: 22px;
-    }
-
-    .price-card li {
-      color: var(--white);
       font-weight: 700;
       font-size: 0.96rem;
     }
@@ -477,30 +513,28 @@
 
     .cta {
       background:
-        linear-gradient(rgba(8, 18, 36, 0.88), rgba(8, 18, 36, 0.88)),
+        linear-gradient(rgba(8,18,36,0.86), rgba(8,18,36,0.86)),
         url("Brightwey Ltd open yard and storage2.png") center/cover no-repeat;
-      text-align: center;
       border-top: 2px solid var(--yellow);
       border-bottom: 2px solid var(--yellow);
+      text-align: center;
     }
 
     .cta h3 {
-      font-size: clamp(1.9rem, 4vw, 3rem);
+      font-size: clamp(2rem, 4vw, 3rem);
       color: var(--yellow);
       margin-bottom: 14px;
     }
 
     .cta p {
-      color: var(--text-soft);
-      max-width: 740px;
+      color: var(--soft);
+      max-width: 760px;
       margin: 0 auto 24px;
-      font-size: 1.05rem;
+      font-size: 1.04rem;
     }
 
-    .contact-wrap {
-      display: grid;
+    .contact-grid {
       grid-template-columns: 1fr 1fr;
-      gap: 24px;
     }
 
     .contact-card {
@@ -513,17 +547,11 @@
       font-size: 1.45rem;
     }
 
-    .contact-card p,
-    .contact-card li {
-      color: var(--text-soft);
-      font-size: 1rem;
-    }
-
     .contact-list {
       list-style: none;
       display: grid;
       gap: 12px;
-      margin-top: 14px;
+      color: var(--soft);
     }
 
     .contact-list strong {
@@ -538,16 +566,16 @@
     footer {
       background: var(--navy-3);
       border-top: 2px solid var(--yellow);
-      padding: 28px 0;
       text-align: center;
-      color: var(--text-soft);
+      padding: 28px 0;
+      color: var(--soft);
       font-size: 0.95rem;
     }
 
     @media (max-width: 1100px) {
       .hero-grid,
-      .about-wrap,
-      .contact-wrap {
+      .location-box,
+      .contact-grid {
         grid-template-columns: 1fr;
       }
 
@@ -556,10 +584,7 @@
         grid-template-columns: 1fr 1fr;
       }
 
-      .features-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-
+      .features-grid,
       .gallery-grid {
         grid-template-columns: 1fr 1fr;
       }
@@ -588,14 +613,6 @@
         padding: 56px 0;
       }
 
-      .trust-grid,
-      .services-grid,
-      .features-grid,
-      .pricing-grid,
-      .gallery-grid {
-        grid-template-columns: 1fr;
-      }
-
       .hero-actions {
         flex-direction: column;
       }
@@ -604,13 +621,30 @@
         width: 100%;
       }
 
-      .about-image img {
+      .trust-grid,
+      .services-grid,
+      .features-grid,
+      .pricing-grid,
+      .gallery-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .location-image img {
         min-height: 260px;
       }
     }
   </style>
 </head>
 <body>
+
+  <div class="topbar">
+    <div class="container">
+      <span>Container Storage from £35/week</span>
+      <span>Yard Space from £250/week</span>
+      <span>HGV Parking from £25/night</span>
+    </div>
+  </div>
 
   <header>
     <div class="container nav-wrap">
@@ -624,11 +658,11 @@
 
       <nav>
         <a href="#services">Services</a>
-        <a href="#why-us">Why Us</a>
+        <a href="#location">Location</a>
         <a href="#prices">Prices</a>
         <a href="#gallery">Gallery</a>
         <a href="#contact">Contact</a>
-        <a class="nav-cta" href="mailto:info@brightwey.co.uk">Get a Quote</a>
+        <a class="nav-btn" href="mailto:info@brightwey.co.uk">Get a Quote</a>
       </nav>
     </div>
   </header>
@@ -636,11 +670,12 @@
   <section class="hero">
     <div class="container hero-grid">
       <div>
-        <span class="eyebrow">Secure Storage in Canterbury</span>
-        <h2>Safe, Flexible <span>Storage Space</span> for Containers, Yard Use and HGV Parking</h2>
+        <span class="eyebrow">Canterbury • CT2 0EU</span>
+        <h2>Container Storage, <span>Open Yard Space</span> & HGV Parking in Canterbury</h2>
         <p>
-          Brightwey provides secure container storage, open yard space and HGV-friendly parking
-          with easy access, flexible terms and competitive pricing for both business and personal use.
+          Secure storage and flexible yard solutions for businesses and individuals at
+          Eureka Industrial Estate, Staines Hill, Canterbury, CT2 0EU. Ideal for stock,
+          tools, materials, vehicles, plant and commercial parking.
         </p>
 
         <div class="hero-actions">
@@ -649,266 +684,61 @@
         </div>
 
         <div class="hero-points">
-          <span>24/7 Access</span>
           <span>Secure Site</span>
+          <span>24/7 Access</span>
           <span>Flexible Terms</span>
-          <span>Business & Personal Use</span>
+          <span>Easy Vehicle Access</span>
         </div>
       </div>
 
       <div class="hero-card">
-        <h3>What We Offer</h3>
-        <p>
-          Straightforward storage and yard solutions for stock, tools, vehicles,
-          materials, machinery and commercial parking needs.
-        </p>
-        <ul>
-          <li>Container storage units</li>
-          <li>Open yard storage space</li>
-          <li>HGV and commercial vehicle parking</li>
-          <li>Easy site access for loading and unloading</li>
-          <li>Short and long-term options available</li>
-        </ul>
+        <h3>Quick Prices</h3>
+
+        <div class="quick-prices">
+          <div class="quick-price">
+            <strong>Container Storage</strong>
+            <span>From £35 per week</span>
+          </div>
+          <div class="quick-price">
+            <strong>Open Yard Space</strong>
+            <span>From £250 per week</span>
+          </div>
+          <div class="quick-price">
+            <strong>HGV Parking</strong>
+            <span>From £25 per night</span>
+          </div>
+        </div>
+
+        <div class="mini-contact">
+          <p><strong>Phone:</strong> <a href="tel:07931086447">07931 086447</a></p>
+          <p><strong>Email:</strong> <a href="mailto:info@brightwey.co.uk">info@brightwey.co.uk</a></p>
+          <p><strong>Address:</strong> Eureka Industrial Estate, Staines Hill, Canterbury, CT2 0EU</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <div class="trust-bar">
+  <div class="trust-strip">
     <div class="container trust-grid">
       <div>Secure Site</div>
       <div>Flexible Terms</div>
-      <div>Easy Access</div>
       <div>Fast Quotes</div>
+      <div>Canterbury Location</div>
     </div>
   </div>
 
   <section id="services">
     <div class="container">
-      <h2 class="section-title">Our Storage Services</h2>
+      <h2 class="section-title">Our Services</h2>
       <p class="section-subtitle">
-        Secure storage, hardstanding yard space and HGV parking in Canterbury for business and personal use.
+        Straightforward storage options for containers, open yard requirements and HGV parking,
+        built around the features customers usually look for first.
       </p>
 
       <div class="services-grid">
         <article class="service-card">
           <img src="Row of shipping containers in daylight2.png" alt="Brightwey container storage units" />
-          <div class="service-card-body">
+          <div class="service-body">
             <h3>Container Storage</h3>
             <p>
-              Secure and practical container space for tools, stock, furniture, equipment
-              and business storage.
-            </p>
-            <ul class="service-list">
-              <li>Drive-up access</li>
-              <li>Suitable for personal or commercial use</li>
-              <li>From £35 per week</li>
-            </ul>
-          </div>
-        </article>
-
-        <article class="service-card">
-          <img src="Brightwey Ltd open yard and storage2.png" alt="Brightwey open yard storage space" />
-          <div class="service-card-body">
-            <h3>Open Yard Space</h3>
-            <p>
-              Flexible outdoor storage for vehicles, materials, machinery and trade or business use.
-            </p>
-            <ul class="service-list">
-              <li>Ideal for commercial use</li>
-              <li>Useful for equipment and vehicle storage</li>
-              <li>From £250 per week</li>
-            </ul>
-          </div>
-        </article>
-
-        <article class="service-card">
-          <img src="Trucks lined up in industrial yard 3.png" alt="Brightwey HGV parking" />
-          <div class="service-card-body">
-            <h3>HGV Parking</h3>
-            <p>
-              Secure on-site parking suitable for HGVs, vans and other commercial vehicles.
-            </p>
-            <ul class="service-list">
-              <li>Easy access for large vehicles</li>
-              <li>Short stay or ongoing arrangements</li>
-              <li>From £25 per night</li>
-            </ul>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section id="why-us">
-    <div class="container">
-      <div class="about-wrap">
-        <div class="about-box">
-          <h3>Why Choose Brightwey?</h3>
-          <p>
-            We make storage simple, secure and professional. Whether you need a container,
-            yard space or overnight HGV parking, Brightwey gives you flexible options with easy access.
-          </p>
-          <p>
-            Ideal for trades, logistics, commercial operators and anyone needing reliable,
-            easy-access storage space in Canterbury.
-          </p>
-          <p>
-            Clear pricing, strong branding and real site images help customers trust the business quickly.
-          </p>
-        </div>
-
-        <div class="about-image">
-          <img src="67fd2fe5-15a6-41ce-81c4-6d1a3bdcde3c  2.png" alt="Inside container storage space" />
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <div class="container">
-      <h2 class="section-title">Why Customers Book With Us</h2>
-      <p class="section-subtitle">
-        Everything customers want to see first: security, access, flexibility and straightforward pricing.
-      </p>
-
-      <div class="features-grid">
-        <div class="feature-card">
-          <h4>Secure Storage</h4>
-          <p>Safe and dependable space for personal and business use.</p>
-        </div>
-        <div class="feature-card">
-          <h4>24/7 Access</h4>
-          <p>Convenient access when you need your storage, yard or vehicle space.</p>
-        </div>
-        <div class="feature-card">
-          <h4>Flexible Terms</h4>
-          <p>Short and long-term options available depending on your needs.</p>
-        </div>
-        <div class="feature-card">
-          <h4>Easy Vehicle Access</h4>
-          <p>Suitable for cars, vans, HGVs, equipment and loading access.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="prices">
-    <div class="container">
-      <h2 class="section-title">Simple Pricing</h2>
-      <p class="section-subtitle">
-        Competitive local pricing with clear starting rates.
-      </p>
-
-      <div class="pricing-grid">
-        <div class="price-card">
-          <span class="price-tag">Popular</span>
-          <h3>Container Storage</h3>
-          <div class="price">From £35 <small>/ week</small></div>
-          <p>Secure container space for stock, tools, furniture and business storage.</p>
-          <ul>
-            <li>Drive-up access</li>
-            <li>Flexible rental periods</li>
-            <li>Business and personal use</li>
-          </ul>
-          <a class="btn btn-primary" href="mailto:info@brightwey.co.uk">Enquire Now</a>
-        </div>
-
-        <div class="price-card">
-          <span class="price-tag">Flexible</span>
-          <h3>Open Yard Space</h3>
-          <div class="price">From £250 <small>/ week</small></div>
-          <p>Outdoor storage for materials, vehicles, plant and commercial use.</p>
-          <ul>
-            <li>Suitable for businesses</li>
-            <li>Useful for machinery and equipment</li>
-            <li>Flexible terms available</li>
-          </ul>
-          <a class="btn btn-primary" href="mailto:info@brightwey.co.uk">Get a Quote</a>
-        </div>
-
-        <div class="price-card">
-          <span class="price-tag">Commercial</span>
-          <h3>HGV Parking</h3>
-          <div class="price">From £25 <small>/ night</small></div>
-          <p>Secure vehicle parking for HGVs, vans and commercial operators.</p>
-          <ul>
-            <li>Easy vehicle access</li>
-            <li>Short or regular stays</li>
-            <li>Fast booking enquiries</li>
-          </ul>
-          <a class="btn btn-primary" href="tel:07931086447">Book Space</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="gallery">
-    <div class="container">
-      <h2 class="section-title">Gallery</h2>
-      <p class="section-subtitle">
-        Real images of the site, containers and yard space help build trust straight away.
-      </p>
-
-      <div class="gallery-grid">
-        <img src="Brightwey Ltd open yard and storage2.png" alt="Brightwey open storage yard" />
-        <img src="67fd2fe5-15a6-41ce-81c4-6d1a3bdcde3c  2.png" alt="Brightwey container interior" />
-        <img src="Row of shipping containers in daylight2.png" alt="Brightwey row of shipping containers" />
-        <img src="Trucks lined up in industrial yard 3.png" alt="Brightwey truck and HGV yard area" />
-      </div>
-    </div>
-  </section>
-
-  <section class="cta">
-    <div class="container">
-      <h3>Need Storage Space or HGV Parking?</h3>
-      <p>
-        Contact Brightwey today for availability, pricing and a quick quote on container storage,
-        open yard space or commercial vehicle parking.
-      </p>
-      <div class="hero-actions" style="justify-content:center;">
-        <a href="tel:07931086447" class="btn btn-primary">Call Now</a>
-        <a href="mailto:info@brightwey.co.uk" class="btn btn-secondary">Email Us</a>
-      </div>
-    </div>
-  </section>
-
-  <section id="contact">
-    <div class="container">
-      <h2 class="section-title">Contact Brightwey</h2>
-      <p class="section-subtitle">
-        Get in touch for a fast quote and availability.
-      </p>
-
-      <div class="contact-wrap">
-        <div class="contact-card">
-          <h3>Get in Touch</h3>
-          <ul class="contact-list">
-            <li><strong>Phone:</strong> <a href="tel:07931086447">07931 086447</a></li>
-            <li><strong>Email:</strong> <a href="mailto:info@brightwey.co.uk">info@brightwey.co.uk</a></li>
-            <li><strong>Location:</strong> Eureka Industrial Estate, Staines Hill, Canterbury</li>
-            <li><strong>Access:</strong> 24/7 access available</li>
-          </ul>
-        </div>
-
-        <div class="contact-card">
-          <h3>Ideal For</h3>
-          <ul class="contact-list">
-            <li>Trades and contractors</li>
-            <li>Transport and logistics operators</li>
-            <li>Vehicle and equipment storage</li>
-            <li>Business stock and overflow space</li>
-            <li>Personal storage needs</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    <div class="container">
-      © 2026 Brightwey Secure Storage. All rights reserved.
-    </div>
-  </footer>
-
-</body>
-</html>
+              Secure container space for tools, stock
