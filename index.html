@@ -13,12 +13,9 @@
   <meta name="format-detection" content="telephone=yes" />
   <style>
     :root {
-      --bg: #07101f;
       --navy: #0b1630;
       --navy-2: #12213f;
       --navy-3: #081224;
-      --surface: rgba(18, 33, 63, 0.94);
-      --surface-soft: rgba(255, 255, 255, 0.06);
       --yellow: #f4c400;
       --yellow-light: #ffd94d;
       --white: #ffffff;
@@ -26,30 +23,29 @@
       --muted: #aeb9cd;
       --green: #18a564;
       --border: rgba(244, 196, 0, 0.18);
-      --shadow: 0 18px 42px rgba(0, 0, 0, 0.26);
+      --shadow: 0 16px 36px rgba(0, 0, 0, 0.22);
       --radius: 22px;
-      --radius-sm: 16px;
       --max: 1180px;
       --section-pad: clamp(56px, 7vw, 88px);
       --card-pad: clamp(20px, 3vw, 28px);
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; }
     body {
       font-family: Arial, Helvetica, sans-serif;
-      background: linear-gradient(180deg, var(--bg) 0%, var(--navy) 100%);
+      background: linear-gradient(180deg, #07101f 0%, #0b1630 100%);
       color: var(--white);
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
       text-rendering: optimizeLegibility;
     }
-    img { display: block; width: 100%; max-width: 100%; }
+    img { max-width: 100%; display: block; }
     a { color: inherit; text-decoration: none; }
     button, input, select, textarea { font: inherit; }
 
     .container {
-      width: min(var(--max), calc(100% - 32px));
+      width: min(var(--max), calc(100% - 28px));
       margin: 0 auto;
     }
 
@@ -61,20 +57,21 @@
     }
     .topbar .container {
       display: flex;
+      align-items: center;
       justify-content: center;
-      gap: 16px;
+      gap: 14px;
       flex-wrap: wrap;
-      text-align: center;
       padding: 10px 0;
+      text-align: center;
     }
 
     header {
       position: sticky;
       top: 0;
       z-index: 1000;
-      background: rgba(8, 18, 36, 0.92);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(244, 196, 0, 0.12);
+      background: rgba(8, 18, 36, 0.94);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(244,196,0,0.14);
     }
     .nav-wrap {
       display: flex;
@@ -91,10 +88,11 @@
     .brand-text {
       display: flex;
       flex-direction: column;
-      line-height: 1.05;
+      line-height: 1.04;
     }
     .brand-text strong {
       font-size: 1.12rem;
+      color: var(--white);
       letter-spacing: 0.01em;
     }
     .brand-text span {
@@ -102,7 +100,7 @@
       font-size: 0.76rem;
       font-weight: 800;
       text-transform: uppercase;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.13em;
       margin-top: 6px;
     }
 
@@ -114,15 +112,17 @@
       justify-content: flex-end;
     }
     nav a {
-      color: var(--soft);
-      font-size: 0.94rem;
+      color: var(--white);
       font-weight: 700;
-      min-height: 48px;
+      font-size: 0.95rem;
+      min-height: 46px;
       display: inline-flex;
       align-items: center;
     }
     nav a:hover,
-    nav a:focus-visible { color: var(--yellow); }
+    nav a:focus-visible {
+      color: var(--yellow);
+    }
 
     .nav-btn,
     .btn-primary {
@@ -130,36 +130,35 @@
       color: var(--navy-3);
     }
     .nav-btn {
-      min-height: 48px;
-      padding: 0 16px;
+      padding: 11px 16px;
       border-radius: 999px;
       font-weight: 800;
+      min-height: 46px;
     }
 
     .hero {
-      padding: clamp(44px, 7vw, 76px) 0 34px;
+      padding: clamp(36px, 6vw, 64px) 0 30px;
       background:
-        radial-gradient(circle at top right, rgba(244, 196, 0, 0.14), transparent 24%),
+        radial-gradient(circle at top right, rgba(244,196,0,0.14), transparent 24%),
         radial-gradient(circle at left top, rgba(255,255,255,0.05), transparent 28%);
     }
     .hero-grid {
       display: grid;
-      grid-template-columns: minmax(0, 1.05fr) minmax(300px, 0.95fr);
+      grid-template-columns: minmax(0, 1.05fr) minmax(310px, 0.95fr);
       gap: 22px;
       align-items: stretch;
     }
 
     .hero-copy,
     .hero-form,
+    .info-card,
     .service-card,
-    .benefit-card,
-    .location-copy,
-    .review-card,
+    .testimonial,
     .faq-item,
     .cta-box,
-    .step-card,
-    .contact-strip {
-      background: var(--surface);
+    .contact-panel,
+    .location-panel {
+      background: rgba(18, 33, 63, 0.96);
       border: 1px solid var(--border);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
@@ -167,19 +166,18 @@
 
     .hero-copy,
     .hero-form,
-    .benefit-card,
-    .location-copy,
-    .review-card,
+    .info-card,
+    .testimonial,
     .faq-item,
     .cta-box,
-    .step-card,
-    .contact-strip {
+    .contact-panel,
+    .location-panel {
       padding: var(--card-pad);
     }
 
     .eyebrow {
       display: inline-block;
-      background: rgba(244,196,0,0.12);
+      background: rgba(244,196,0,0.14);
       border: 1px solid var(--border);
       color: var(--yellow);
       padding: 8px 12px;
@@ -188,54 +186,59 @@
       font-weight: 800;
       letter-spacing: 0.08em;
       text-transform: uppercase;
-      margin-bottom: 16px;
+      margin-bottom: 14px;
     }
 
     h1 {
-      font-size: clamp(2.2rem, 5vw, 4.5rem);
-      line-height: 1.03;
+      font-size: clamp(2.1rem, 5vw, 4.5rem);
+      line-height: 1.02;
       margin-bottom: 12px;
-      max-width: 800px;
+      max-width: 760px;
     }
     h1 span,
     .section-title,
-    .hero-form h2,
     .service-body h3,
-    .benefit-card h3,
-    .location-copy h3,
-    .review-card strong,
-    .faq-item summary,
     .cta-box h2,
-    .step-number,
-    .footer-grid h4 { color: var(--yellow); }
+    .faq-item summary,
+    .footer-grid h4,
+    .price-chip strong,
+    .info-card h3,
+    .contact-panel h3,
+    .location-panel h3,
+    .testimonial strong,
+    .hero-form h2 {
+      color: var(--yellow);
+    }
 
     .hero-subheadline,
-    .subcopy,
-    .hero-copy p,
     .section-subtitle,
+    .hero-copy p,
     .service-body p,
-    .benefit-card p,
-    .location-copy p,
-    .review-card p,
     .faq-item p,
     .footer-grid p,
     .footer-grid a,
     .cta-box p,
-    .contact-strip p,
-    .contact-strip li,
-    .stat span,
-    .mini-note { color: var(--soft); }
+    .contact-panel p,
+    .location-panel p,
+    .testimonial p,
+    .info-card p,
+    .mini-note,
+    .contact-list li,
+    .service-list li {
+      color: var(--soft);
+    }
 
     .hero-subheadline {
-      font-size: clamp(1rem, 2vw, 1.14rem);
+      font-size: clamp(1rem, 2vw, 1.12rem);
       font-weight: 700;
       margin-bottom: 14px;
     }
     .hero-copy p {
-      font-size: 1.04rem;
+      font-size: 1.02rem;
       max-width: 700px;
       margin-bottom: 18px;
     }
+
     .hero-actions {
       display: flex;
       flex-wrap: wrap;
@@ -258,53 +261,62 @@
     .btn:hover,
     .btn:focus-visible,
     .nav-btn:hover,
-    .nav-btn:focus-visible { transform: translateY(-2px); }
+    .nav-btn:focus-visible {
+      transform: translateY(-2px);
+    }
     .btn-primary:hover,
     .btn-primary:focus-visible,
     .nav-btn:hover,
-    .nav-btn:focus-visible { background: var(--yellow-light); }
+    .nav-btn:focus-visible {
+      background: var(--yellow-light);
+    }
     .btn-secondary {
       background: transparent;
       color: var(--white);
       border-color: var(--yellow);
     }
     .btn-secondary:hover,
-    .btn-secondary:focus-visible { background: rgba(244,196,0,0.08); }
-
-    .pill-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-bottom: 18px;
-    }
-    .pill-row span,
-    .service-tags span,
-    .location-points span {
-      background: rgba(255,255,255,0.08);
-      border: 1px solid var(--border);
-      padding: 9px 13px;
-      border-radius: 999px;
-      font-size: 0.9rem;
-      font-weight: 700;
+    .btn-secondary:focus-visible {
+      background: rgba(244,196,0,0.08);
     }
 
-    .hero-stats {
+    .proof-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-top: 16px;
+    }
+    .info-card h3 {
+      font-size: 1rem;
+      margin-bottom: 4px;
+    }
+    .info-card p {
+      font-size: 0.92rem;
+      line-height: 1.45;
+    }
+
+    .price-row {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 12px;
+      margin-top: 18px;
     }
-    .stat {
+    .price-chip {
       background: rgba(255,255,255,0.05);
       border: 1px solid rgba(255,255,255,0.06);
       border-radius: 16px;
-      padding: 14px 12px;
+      padding: 14px;
       text-align: center;
     }
-    .stat strong {
+    .price-chip strong {
       display: block;
-      color: var(--yellow);
-      font-size: 1.14rem;
+      font-size: 1.12rem;
       margin-bottom: 2px;
+    }
+    .price-chip span {
+      color: var(--soft);
+      font-size: 0.92rem;
+      font-weight: 700;
     }
 
     .hero-form h2 {
@@ -317,40 +329,40 @@
     }
 
     .form-row { display: grid; gap: 8px; margin-bottom: 14px; }
-    .form-row label { font-weight: 700; font-size: 0.95rem; }
+    .form-row label { font-weight: 700; color: var(--white); font-size: 0.94rem; }
     .form-row input,
     .form-row select,
     .form-row textarea {
       width: 100%;
-      min-height: 52px;
       padding: 14px;
       border-radius: 14px;
       border: 1px solid rgba(255,255,255,0.16);
       background: rgba(255,255,255,0.06);
       color: var(--white);
+      min-height: 52px;
       outline: none;
     }
     .form-row input:focus,
     .form-row select:focus,
     .form-row textarea:focus {
       border-color: var(--yellow);
-      box-shadow: 0 0 0 3px rgba(244, 196, 0, 0.15);
+      box-shadow: 0 0 0 3px rgba(244, 196, 0, 0.14);
     }
     .form-row select option { color: #000; }
     .form-row input::placeholder,
     .form-row textarea::placeholder { color: #ccd5e5; }
-    .form-row textarea { min-height: 120px; resize: vertical; }
+    .form-row textarea { min-height: 118px; resize: vertical; }
 
-    .trust-strip {
+    .quick-links {
       background: var(--yellow);
       color: var(--navy-3);
     }
-    .trust-grid {
+    .quick-links .container {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 12px;
       text-align: center;
-      padding: 15px 0;
+      padding: 14px 0;
       font-weight: 800;
     }
 
@@ -362,111 +374,101 @@
     }
     .section-subtitle {
       text-align: center;
-      max-width: 780px;
-      margin: 0 auto 36px;
+      max-width: 760px;
+      margin: 0 auto 34px;
       font-size: 1rem;
     }
 
     .services-grid,
-    .benefits-grid,
-    .reviews-grid,
     .faq-grid,
-    .steps-grid {
+    .testimonials-grid,
+    .location-grid {
       display: grid;
       gap: 22px;
     }
     .services-grid,
-    .reviews-grid,
-    .steps-grid { grid-template-columns: repeat(3, 1fr); }
-    .benefits-grid { grid-template-columns: repeat(4, 1fr); }
+    .testimonials-grid { grid-template-columns: repeat(3, 1fr); }
     .faq-grid,
-    .location-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    .location-grid { grid-template-columns: 1fr 1fr; }
 
-    .service-card { overflow: hidden; }
+    .service-card {
+      overflow: hidden;
+      background: rgba(18, 33, 63, 0.96);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
     .service-card img {
+      width: 100%;
       height: 210px;
       object-fit: cover;
-      filter: contrast(1.04) brightness(0.95);
+      filter: contrast(1.05) brightness(0.95);
     }
     .service-body { padding: 22px; }
-    .service-body h3,
-    .benefit-card h3,
-    .location-copy h3,
-    .cta-box h2 {
-      font-size: 1.28rem;
-      margin-bottom: 10px;
-    }
+    .service-body h3 { font-size: 1.26rem; margin-bottom: 10px; }
     .service-tags {
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
       margin: 16px 0 14px;
     }
+    .service-tags span {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid var(--border);
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-size: 0.88rem;
+      font-weight: 700;
+    }
     .service-list {
       list-style: none;
       display: grid;
-      gap: 10px;
-      color: var(--soft);
+      gap: 9px;
+      margin-bottom: 18px;
       font-weight: 700;
-      font-size: 0.95rem;
-    }
-
-    .step-number {
-      display: inline-flex;
-      width: 46px;
-      height: 46px;
-      border-radius: 50%;
-      align-items: center;
-      justify-content: center;
-      background: rgba(244,196,0,0.12);
-      border: 1px solid var(--border);
-      font-size: 1.1rem;
-      font-weight: 900;
-      margin-bottom: 14px;
+      font-size: 0.94rem;
     }
 
     .location-image img {
+      width: 100%;
       height: 100%;
-      min-height: 380px;
+      min-height: 360px;
       object-fit: cover;
       border-radius: var(--radius);
       border: 1px solid var(--border);
       box-shadow: var(--shadow);
     }
-    .location-points {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin: 18px 0 22px;
-    }
-
-    .contact-strip {
-      display: grid;
-      grid-template-columns: 1.2fr 1fr 1fr;
-      gap: 16px;
-      align-items: center;
-    }
-    .contact-strip ul {
+    .contact-list {
       list-style: none;
       display: grid;
-      gap: 6px;
+      gap: 10px;
+      margin: 18px 0 22px;
+      font-weight: 700;
+      font-size: 0.95rem;
     }
 
     .cta-box {
       text-align: center;
-      background: linear-gradient(rgba(8,18,36,0.92), rgba(8,18,36,0.92)), url("Brightwey Ltd open yard and storage2.png") center/cover no-repeat;
+      background: linear-gradient(rgba(8,18,36,0.93), rgba(8,18,36,0.93)), url("Brightwey Ltd open yard and storage2.png") center/cover no-repeat;
       border: 2px solid var(--yellow);
     }
-    .cta-box h2 { font-size: clamp(1.9rem, 4vw, 3rem); }
-    .cta-box p { max-width: 720px; margin: 0 auto 22px; }
+    .cta-box h2 {
+      font-size: clamp(1.9rem, 4vw, 3rem);
+      margin-bottom: 10px;
+    }
+    .cta-box p {
+      max-width: 740px;
+      margin: 0 auto 22px;
+      font-size: 1rem;
+    }
 
-    .review-card p { margin-bottom: 14px; font-style: italic; }
+    .testimonial p { margin-bottom: 14px; font-style: italic; }
 
     .faq-item summary {
       list-style: none;
       cursor: pointer;
       font-weight: 800;
-      font-size: 1.05rem;
+      font-size: 1.04rem;
     }
     .faq-item p { margin-top: 12px; }
 
@@ -483,7 +485,7 @@
       gap: 24px;
       margin-bottom: 20px;
     }
-    .footer-grid a { display: block; margin-bottom: 8px; }
+    .footer-grid a { display: block; margin-bottom: 8px; color: var(--soft); }
     .footer-grid a:hover { color: var(--yellow); }
     .copyright {
       text-align: center;
@@ -502,7 +504,7 @@
     }
     .sticky-cta a {
       flex: 1 1 0;
-      min-height: 52px;
+      min-height: 50px;
       padding: 13px 16px;
       border-radius: 999px;
       font-weight: 800;
@@ -517,69 +519,59 @@
 
     @media (max-width: 1100px) {
       .hero-grid,
-      .location-wrap,
-      .contact-strip,
-      .footer-grid,
-      .faq-grid { grid-template-columns: 1fr; }
+      .location-grid,
+      .faq-grid,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
       .services-grid,
-      .benefits-grid,
-      .reviews-grid,
-      .steps-grid,
-      .hero-stats { grid-template-columns: 1fr 1fr; }
+      .testimonials-grid,
+      .proof-row,
+      .price-row {
+        grid-template-columns: 1fr 1fr;
+      }
     }
 
     @media (max-width: 760px) {
-      .container { width: min(var(--max), calc(100% - 24px)); }
-
-      .nav-wrap {
-        flex-direction: column;
-        align-items: stretch;
-        padding: 12px 0;
-      }
-      .brand { justify-content: center; }
+      body { padding-bottom: 82px; }
+      .container { width: min(var(--max), calc(100% - 22px)); }
+      .nav-wrap { flex-direction: column; align-items: stretch; }
+      .brand { justify-content: center; margin: 0 auto; }
       nav {
+        justify-content: flex-start;
         flex-wrap: nowrap;
         overflow-x: auto;
         gap: 10px;
         padding-bottom: 4px;
-        -ms-overflow-style: none;
         scrollbar-width: none;
+        -ms-overflow-style: none;
       }
       nav::-webkit-scrollbar { display: none; }
-      nav a,
-      .nav-btn {
+      nav a {
         white-space: nowrap;
-        padding: 0 14px;
-        border-radius: 999px;
         background: rgba(255,255,255,0.04);
         border: 1px solid rgba(255,255,255,0.06);
+        border-radius: 999px;
+        padding: 0 14px;
       }
-      .nav-btn { background: var(--yellow); border-color: transparent; }
-
-      .hero { padding-top: 34px; }
+      .nav-btn { border: none; }
       .hero-grid,
+      .proof-row,
+      .price-row,
       .services-grid,
-      .benefits-grid,
-      .reviews-grid,
-      .steps-grid,
+      .testimonials-grid,
       .faq-grid,
-      .hero-stats,
-      .trust-grid { grid-template-columns: 1fr; }
-
+      .quick-links .container {
+        grid-template-columns: 1fr;
+      }
       .hero-actions { flex-direction: column; }
       .btn { width: 100%; }
-
       .service-card img,
-      .location-image img { height: 220px; min-height: 220px; }
-
-      .topbar .container {
-        gap: 10px;
-        font-size: 0.85rem;
+      .location-image img {
+        height: 220px;
+        min-height: 220px;
       }
-
       .sticky-cta { display: flex; }
-
-      body { padding-bottom: 82px; }
     }
   </style>
 </head>
@@ -601,7 +593,7 @@
         </span>
       </a>
 
-      <nav aria-label="Primary">
+      <nav>
         <a href="#services">Services</a>
         <a href="#why-us">Why Us</a>
         <a href="#location">Location</a>
@@ -616,31 +608,43 @@
       <div class="hero-copy">
         <span class="eyebrow">Canterbury • CT2 0EU • Secure Commercial Space</span>
         <h1>Secure <span>Container Storage</span>, Yard Space & HGV Parking in Canterbury</h1>
-        <div class="hero-subheadline">High-demand location • 24/7 access • Fast quotes</div>
-        <p>Brightwey Secure Storage provides practical space for trades, logistics, commercial vehicles, stock, tools, materials and overflow storage in Canterbury. The mobile layout is now built to get people to the key answers faster.</p>
+        <div class="hero-subheadline">Fast quotes • 24/7 access • Practical commercial site</div>
+        <p>A cleaner homepage structure that gets mobile visitors to the important information faster: what you offer, what it costs, where you are and how to contact you.</p>
 
         <div class="hero-actions">
           <a href="tel:07931086447" class="btn btn-primary">Call 07931 086447</a>
           <a href="#enquire" class="btn btn-secondary">Check Availability</a>
         </div>
 
-        <div class="pill-row">
-          <span>24/7 Access</span>
-          <span>Flexible Terms</span>
-          <span>Easy Commercial Access</span>
-          <span>Fast Quotes</span>
+        <div class="proof-row">
+          <div class="info-card">
+            <h3>24/7 Access</h3>
+            <p>Built around practical access for real working schedules.</p>
+          </div>
+          <div class="info-card">
+            <h3>Clear Pricing</h3>
+            <p>Starting prices are visible early so people can decide quickly.</p>
+          </div>
+          <div class="info-card">
+            <h3>Commercial Friendly</h3>
+            <p>Suitable for trades, transport, stock and vehicle storage.</p>
+          </div>
+          <div class="info-card">
+            <h3>Fast Response</h3>
+            <p>Simple enquiry path with phone and form both easy to reach.</p>
+          </div>
         </div>
 
-        <div class="hero-stats">
-          <div class="stat">
+        <div class="price-row">
+          <div class="price-chip">
             <strong>£35+</strong>
             <span>Container storage</span>
           </div>
-          <div class="stat">
+          <div class="price-chip">
             <strong>£250+</strong>
             <span>Yard space</span>
           </div>
-          <div class="stat">
+          <div class="price-chip">
             <strong>£25+</strong>
             <span>HGV parking</span>
           </div>
@@ -649,7 +653,7 @@
 
       <div class="hero-form" id="enquire">
         <h2>Request a Fast Quote</h2>
-        <p class="mini-note">One clear form is better on mobile than repeating the same enquiry form twice.</p>
+        <p class="mini-note">One main form keeps the mobile layout cleaner than repeating forms further down the page.</p>
 
         <form action="https://api.web3forms.com/submit" method="POST">
           <input type="hidden" name="access_key" value="7c6ab2c6-1523-4081-8c86-6b2134ea1663" />
@@ -689,26 +693,26 @@
     </div>
   </section>
 
-  <div class="trust-strip">
-    <div class="container trust-grid">
+  <div class="quick-links">
+    <div class="container">
       <div>Fast Quotes</div>
-      <div>Simple Pricing</div>
       <div>Flexible Terms</div>
       <div>Canterbury Location</div>
+      <div>Easy Access</div>
     </div>
   </div>
 
   <section id="services">
     <div class="container">
       <h2 class="section-title">Choose the Space You Need</h2>
-      <p class="section-subtitle">The best mobile sites keep the first decision simple. These cards are now the main service selector instead of burying the offer further down the page.</p>
+      <p class="section-subtitle">A cleaner service section puts the main choices first so mobile visitors can self-select immediately.</p>
 
       <div class="services-grid">
         <article class="service-card">
           <img src="67fd2fe5-15a6-41ce-81c4-6d1a3bdcde3c  2.png" alt="Inside Brightwey storage container" />
           <div class="service-body">
             <h3>Container Storage</h3>
-            <p>Secure container storage for stock, tools, equipment and general storage with simple access and clear pricing.</p>
+            <p>Secure storage for stock, tools, equipment and general business or personal use.</p>
             <div class="service-tags">
               <span>From £35/week</span>
               <span>Drive-up access</span>
@@ -719,6 +723,7 @@
               <li>Easy loading and unloading</li>
               <li>Flexible extra room when needed</li>
             </ul>
+            <a href="#enquire" class="btn btn-primary">Enquire Now</a>
           </div>
         </article>
 
@@ -726,7 +731,7 @@
           <img src="Brightwey Ltd open yard and storage2.png" alt="Brightwey open yard space in Canterbury" />
           <div class="service-body">
             <h3>Open Yard Space</h3>
-            <p>Flexible outdoor yard space for materials, vehicles, plant and commercial use in a practical Canterbury location.</p>
+            <p>Flexible outdoor space for materials, vehicles, plant and broader commercial use.</p>
             <div class="service-tags">
               <span>From £250/week</span>
               <span>Commercial use</span>
@@ -734,9 +739,10 @@
             </div>
             <ul class="service-list">
               <li>Useful for operational overflow</li>
-              <li>Strong fit for contractor use</li>
+              <li>Ideal for trade and contractor use</li>
               <li>Practical space for materials and equipment</li>
             </ul>
+            <a href="#enquire" class="btn btn-primary">Get a Quote</a>
           </div>
         </article>
 
@@ -744,7 +750,7 @@
           <img src="Trucks lined up in industrial yard 3.png" alt="Brightwey HGV parking area" />
           <div class="service-body">
             <h3>HGV Parking</h3>
-            <p>Secure parking for HGVs, vans and commercial vehicles with straightforward access for short stays or regular use.</p>
+            <p>Secure parking for HGVs, vans and commercial vehicles with straightforward access.</p>
             <div class="service-tags">
               <span>From £25/night</span>
               <span>Easy access</span>
@@ -753,8 +759,9 @@
             <ul class="service-list">
               <li>Practical for busy operators</li>
               <li>Useful for repeat or short-term use</li>
-              <li>Convenient Canterbury base</li>
+              <li>Strong fit for commercial vehicle needs</li>
             </ul>
+            <a href="tel:07931086447" class="btn btn-primary">Book Space</a>
           </div>
         </article>
       </div>
@@ -764,67 +771,42 @@
   <section id="why-us">
     <div class="container">
       <h2 class="section-title">Why Choose Brightwey</h2>
-      <p class="section-subtitle">Long mobile pages work better when similar information is merged into fewer, stronger blocks instead of being repeated several times.</p>
+      <p class="section-subtitle">Instead of repeating similar points across several sections, these are grouped into one stronger trust block.</p>
 
-      <div class="benefits-grid">
-        <div class="benefit-card">
+      <div class="proof-row">
+        <div class="info-card">
           <h3>Secure Site</h3>
-          <p>CCTV monitored and positioned in a practical industrial setting suited to business, vehicle and commercial storage needs.</p>
+          <p>CCTV monitored and positioned in a practical industrial setting.</p>
         </div>
-        <div class="benefit-card">
-          <h3>24/7 Access</h3>
-          <p>Access your storage, yard space or parking when it suits your work schedule or operational needs.</p>
+        <div class="info-card">
+          <h3>Built for Business</h3>
+          <p>Strong fit for trades, contractors, logistics and storage overflow.</p>
         </div>
-        <div class="benefit-card">
-          <h3>Clear Pricing</h3>
-          <p>Simple starting prices help visitors understand the offer quickly without needing to hunt for information.</p>
+        <div class="info-card">
+          <h3>Simple Enquiry</h3>
+          <p>Call, email or request a quote without extra friction.</p>
         </div>
-        <div class="benefit-card">
-          <h3>Commercial Friendly</h3>
-          <p>Easy vehicle access for cars, vans, trucks, HGVs and broader commercial use.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <div class="container">
-      <h2 class="section-title">How It Works</h2>
-      <p class="section-subtitle">A short, predictable process helps mobile users keep moving instead of overthinking.</p>
-
-      <div class="steps-grid">
-        <div class="step-card">
-          <div class="step-number">1</div>
-          <h3>Enquire</h3>
-          <p class="subcopy">Call us or use the quote form to check current availability.</p>
-        </div>
-        <div class="step-card">
-          <div class="step-number">2</div>
-          <h3>Confirm Space</h3>
-          <p class="subcopy">We confirm what suits your needs, the price and the next steps.</p>
-        </div>
-        <div class="step-card">
-          <div class="step-number">3</div>
-          <h3>Move In</h3>
-          <p class="subcopy">Start using your container, yard space or parking quickly and without hassle.</p>
+        <div class="info-card">
+          <h3>Flexible Options</h3>
+          <p>Suitable for short-term or longer-term use depending on need.</p>
         </div>
       </div>
     </div>
   </section>
 
   <section id="location">
-    <div class="container location-wrap">
-      <div class="location-copy">
+    <div class="container location-grid">
+      <div class="location-panel">
         <h3>Easy-to-Find Canterbury Location</h3>
-        <p>Located at Eureka Industrial Estate, Staines Hill, Canterbury, CT2 0EU, the site is easy to access and suitable for commercial use.</p>
-        <p>This section now combines your location, contact details and key trust points into one place instead of spreading them across multiple sections.</p>
+        <p>Located at Eureka Industrial Estate, Staines Hill, Canterbury, CT2 0EU, our site is easy to access and suitable for commercial use.</p>
+        <p>This keeps the location, contact info and conversion points together so mobile users do not have to hunt for them later.</p>
 
-        <div class="location-points">
-          <span>24/7 access available</span>
-          <span>Phone: 07931 086447</span>
-          <span>info@brightwey.co.uk</span>
-          <span>Canterbury CT2 0EU</span>
-        </div>
+        <ul class="contact-list">
+          <li><strong>Phone:</strong> <a href="tel:07931086447">07931 086447</a></li>
+          <li><strong>Email:</strong> <a href="mailto:info@brightwey.co.uk">info@brightwey.co.uk</a></li>
+          <li><strong>Address:</strong> Eureka Industrial Estate, Staines Hill, Canterbury, CT2 0EU</li>
+          <li><strong>Access:</strong> 24/7 access available</li>
+        </ul>
 
         <div class="hero-actions" style="margin-bottom:0;">
           <a href="https://www.google.co.uk/maps/place/Brightwey+Secure+Storage+%26+Yard+Space/" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Get Directions</a>
@@ -840,37 +822,19 @@
 
   <section>
     <div class="container">
-      <div class="contact-strip">
-        <div>
-          <h3 style="color: var(--yellow); margin-bottom: 6px;">Contact Brightwey</h3>
-          <p>Call, email or send a quick enquiry to check availability and pricing.</p>
-        </div>
-        <ul>
-          <li><strong>Phone:</strong> <a href="tel:07931086447">07931 086447</a></li>
-          <li><strong>Email:</strong> <a href="mailto:info@brightwey.co.uk">info@brightwey.co.uk</a></li>
-        </ul>
-        <div class="hero-actions" style="margin-bottom:0;">
-          <a href="tel:07931086447" class="btn btn-primary">Call Now</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <div class="container">
       <h2 class="section-title">What Customers Say</h2>
-      <p class="section-subtitle">Keep social proof short on mobile. A few stronger testimonials work better than a long wall of text.</p>
+      <p class="section-subtitle">A short review section gives social proof without making the page feel heavy on mobile.</p>
 
-      <div class="reviews-grid">
-        <div class="review-card">
+      <div class="testimonials-grid">
+        <div class="testimonial">
           <p>“Perfect for our tools and materials. Easy access and no hassle at all.”</p>
           <strong>Local Builder, Canterbury</strong>
         </div>
-        <div class="review-card">
+        <div class="testimonial">
           <p>“Great location and straightforward setup. Exactly what we needed for extra space.”</p>
           <strong>Transport Company, Kent</strong>
         </div>
-        <div class="review-card">
+        <div class="testimonial">
           <p>“Used for vehicle storage — secure and easy to get in and out.”</p>
           <strong>Repeat Customer</strong>
         </div>
@@ -894,7 +858,7 @@
   <section id="faq">
     <div class="container">
       <h2 class="section-title">Frequently Asked Questions</h2>
-      <p class="section-subtitle">Using expandable FAQ items reduces visual clutter on mobile while keeping all of your useful information.</p>
+      <p class="section-subtitle">Expandable FAQ items keep your information while making the page cleaner and easier to scan.</p>
 
       <div class="faq-grid">
         <details class="faq-item">
