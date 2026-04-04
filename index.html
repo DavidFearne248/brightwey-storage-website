@@ -89,12 +89,16 @@
     }
 
     .brand {
-      display: flex;
+      display: inline-flex;
       align-items: center;
+      padding: 10px 16px;
+      background: #ffffff;
+      border-radius: 14px;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.22);
     }
 
     .brand img {
-      height: 58px;
+      height: 72px;
       width: auto;
       display: block;
     }
@@ -595,6 +599,44 @@
       font-size: 1.04rem;
     }
 
+    .map-info {
+      max-width: 900px;
+      margin: 0 auto 24px;
+      padding: 22px;
+      background: rgba(18, 33, 63, 0.94);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      text-align: center;
+    }
+
+    .map-info h3 {
+      color: var(--yellow);
+      margin-bottom: 10px;
+      font-size: 1.35rem;
+    }
+
+    .map-info p {
+      color: var(--soft);
+      margin-bottom: 14px;
+    }
+
+    .map-points {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .map-points span {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid var(--border);
+      padding: 9px 13px;
+      border-radius: 999px;
+      font-size: 0.92rem;
+      font-weight: 700;
+    }
+
     .map-box {
       border-radius: 16px;
       overflow: hidden;
@@ -679,6 +721,7 @@
 
       .brand {
         justify-content: center;
+        margin: 0 auto;
       }
 
       nav {
@@ -1078,4 +1121,159 @@
 
         <form action="mailto:info@brightwey.co.uk" method="post" enctype="text/plain">
           <div class="form-row">
-            <label
+            <label for="name">Full Name</label>
+            <input id="name" name="name" type="text" placeholder="Your name" required />
+          </div>
+
+          <div class="form-row">
+            <label for="phone">Phone Number</label>
+            <input id="phone" name="phone" type="tel" placeholder="Your phone number" required />
+          </div>
+
+          <div class="form-row">
+            <label for="email">Email Address</label>
+            <input id="email" name="email" type="email" placeholder="Your email address" required />
+          </div>
+
+          <div class="form-row">
+            <label for="service">Service Needed</label>
+            <select id="service" name="service" required>
+              <option value="">Select a service</option>
+              <option>Container Storage</option>
+              <option>Open Yard Space</option>
+              <option>HGV Parking</option>
+              <option>More Than One Service</option>
+            </select>
+          </div>
+
+          <div class="form-row">
+            <label for="message">What space do you need?</label>
+            <textarea id="message" name="message" placeholder="Tell us what you need, when you need it and how long for."></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary">Send Enquiry</button>
+          <div class="form-note">Tip: later, this can be connected to a proper form tool for stronger lead capture.</div>
+        </form>
+      </div>
+
+      <div class="contact-card" id="contact">
+        <h3>Contact Brightwey</h3>
+        <p>Call, email or use the enquiry form for a quick response.</p>
+        <ul class="contact-list" style="margin:18px 0 24px;">
+          <li><strong>Phone:</strong> <a href="tel:07931086447">07931 086447</a></li>
+          <li><strong>Email:</strong> <a href="mailto:info@brightwey.co.uk">info@brightwey.co.uk</a></li>
+          <li><strong>Address:</strong> Eureka Industrial Estate, Staines Hill, Canterbury, CT2 0EU</li>
+          <li><strong>Access:</strong> 24/7 access available</li>
+        </ul>
+
+        <h3 style="margin-top:22px;">Best For</h3>
+        <ul class="contact-list">
+          <li>Trades and contractors</li>
+          <li>Transport and logistics operators</li>
+          <li>Vehicle and equipment storage</li>
+          <li>Business stock and overflow space</li>
+          <li>Personal storage needs</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="map">
+    <div class="container">
+      <h2 class="section-title">Find Our Yard</h2>
+      <p class="section-subtitle">
+        Brightwey Secure Storage & Yard Space, Eureka Industrial Estate, Staines Hill, Canterbury, CT2 0EU.
+      </p>
+
+      <div class="map-info">
+        <h3>Easy-to-Find Canterbury Yard</h3>
+        <p>Make the location a selling point. Visitors should instantly see where you are, how practical the site is, and how to get directions fast.</p>
+        <div class="map-points">
+          <span>Eureka Industrial Estate</span>
+          <span>Staines Hill</span>
+          <span>Canterbury CT2 0EU</span>
+          <span>Commercial Access</span>
+        </div>
+      </div>
+
+      <div class="map-box">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d319966.7875293403!2d0.38222516204602525!3d51.205432646851236!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47deb5aa6d1c1f99%3A0xc5422e592a39da80!2sBrightwey%20Secure%20Storage%20%26%20Yard%20Space!5e0!3m2!1sen!2suk!4v1775307502187!5m2!1sen!2suk"
+          width="100%"
+          height="450"
+          style="border:0;"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+
+      <div class="map-actions">
+        <a
+          href="https://www.google.co.uk/maps/place/Brightwey+Secure+Storage+%26+Yard+Space/"
+          class="btn btn-primary"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Get Directions
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <h2 class="section-title">Frequently Asked Questions</h2>
+      <p class="section-subtitle">
+        These help reduce friction and answer the things buyers often check before contacting you.
+      </p>
+
+      <div class="faq-grid">
+        <div class="faq-item">
+          <h3>Who is your storage suitable for?</h3>
+          <p>Our space suits businesses, trades, logistics operators and individuals needing practical secure storage in Canterbury.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Do you offer flexible terms?</h3>
+          <p>Yes, we offer flexible options depending on the type of space required and how long you need it for.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Can I enquire about more than one service?</h3>
+          <p>Yes. If you need a combination of storage, yard space and HGV parking, just include that in your enquiry.</p>
+        </div>
+        <div class="faq-item">
+          <h3>How do I check availability?</h3>
+          <p>Call us, email us or use the quote form on this page and we can confirm current space options.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h4>Brightwey Secure Storage</h4>
+          <p>Secure container storage, open yard space and HGV parking in Canterbury.</p>
+        </div>
+        <div>
+          <h4>Contact</h4>
+          <a href="tel:07931086447">07931 086447</a>
+          <a href="mailto:info@brightwey.co.uk">info@brightwey.co.uk</a>
+          <p>Eureka Industrial Estate, Staines Hill, Canterbury, CT2 0EU</p>
+        </div>
+        <div>
+          <h4>Quick Links</h4>
+          <a href="#services">Services</a>
+          <a href="#prices">Prices</a>
+          <a href="#enquire">Get a Quote</a>
+          <a href="#map">Map</a>
+        </div>
+      </div>
+      <div class="copyright">© 2026 Brightwey Secure Storage. All rights reserved.</div>
+    </div>
+  </footer>
+
+</body>
+</html>
+
