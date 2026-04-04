@@ -23,10 +23,11 @@
       --muted: #aeb9cd;
       --green: #18a564;
       --border: rgba(244, 196, 0, 0.18);
-      --shadow: 0 16px 36px rgba(0, 0, 0, 0.22);
+      --shadow: 0 18px 42px rgba(0, 0, 0, 0.24);
       --radius: 22px;
+      --radius-sm: 16px;
       --max: 1180px;
-      --section-pad: clamp(56px, 7vw, 88px);
+      --section-pad: clamp(54px, 7vw, 88px);
       --card-pad: clamp(20px, 3vw, 28px);
     }
 
@@ -53,16 +54,15 @@
       background: var(--yellow);
       color: var(--navy-3);
       font-weight: 800;
-      font-size: 0.92rem;
+      font-size: 0.9rem;
     }
     .topbar .container {
       display: flex;
-      align-items: center;
       justify-content: center;
       gap: 14px;
       flex-wrap: wrap;
-      padding: 10px 0;
       text-align: center;
+      padding: 10px 0;
     }
 
     header {
@@ -120,9 +120,7 @@
       align-items: center;
     }
     nav a:hover,
-    nav a:focus-visible {
-      color: var(--yellow);
-    }
+    nav a:focus-visible { color: var(--yellow); }
 
     .nav-btn,
     .btn-primary {
@@ -137,27 +135,27 @@
     }
 
     .hero {
-      padding: clamp(36px, 6vw, 64px) 0 30px;
+      padding: clamp(28px, 5vw, 52px) 0 34px;
       background:
         radial-gradient(circle at top right, rgba(244,196,0,0.14), transparent 24%),
         radial-gradient(circle at left top, rgba(255,255,255,0.05), transparent 28%);
     }
     .hero-grid {
       display: grid;
-      grid-template-columns: minmax(0, 1.05fr) minmax(310px, 0.95fr);
+      grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.9fr);
       gap: 22px;
-      align-items: stretch;
+      align-items: start;
     }
 
     .hero-copy,
     .hero-form,
-    .info-card,
     .service-card,
+    .trust-card,
     .testimonial,
     .faq-item,
     .cta-box,
-    .contact-panel,
-    .location-panel {
+    .location-panel,
+    .contact-band {
       background: rgba(18, 33, 63, 0.96);
       border: 1px solid var(--border);
       border-radius: var(--radius);
@@ -166,12 +164,12 @@
 
     .hero-copy,
     .hero-form,
-    .info-card,
+    .trust-card,
     .testimonial,
     .faq-item,
     .cta-box,
-    .contact-panel,
-    .location-panel {
+    .location-panel,
+    .contact-band {
       padding: var(--card-pad);
     }
 
@@ -190,23 +188,23 @@
     }
 
     h1 {
-      font-size: clamp(2.1rem, 5vw, 4.5rem);
+      font-size: clamp(2.1rem, 5vw, 4.4rem);
       line-height: 1.02;
-      margin-bottom: 12px;
-      max-width: 760px;
+      margin-bottom: 10px;
+      max-width: 720px;
     }
     h1 span,
     .section-title,
+    .hero-form h2,
     .service-body h3,
-    .cta-box h2,
+    .trust-card h3,
+    .testimonial strong,
     .faq-item summary,
+    .cta-box h2,
+    .location-panel h3,
     .footer-grid h4,
     .price-chip strong,
-    .info-card h3,
-    .contact-panel h3,
-    .location-panel h3,
-    .testimonial strong,
-    .hero-form h2 {
+    .trust-chip strong {
       color: var(--yellow);
     }
 
@@ -214,36 +212,37 @@
     .section-subtitle,
     .hero-copy p,
     .service-body p,
+    .trust-card p,
+    .testimonial p,
     .faq-item p,
+    .cta-box p,
+    .location-panel p,
     .footer-grid p,
     .footer-grid a,
-    .cta-box p,
-    .contact-panel p,
-    .location-panel p,
-    .testimonial p,
-    .info-card p,
     .mini-note,
+    .service-list li,
     .contact-list li,
-    .service-list li {
+    .price-chip span,
+    .trust-chip span {
       color: var(--soft);
     }
 
     .hero-subheadline {
       font-size: clamp(1rem, 2vw, 1.12rem);
       font-weight: 700;
-      margin-bottom: 14px;
+      margin-bottom: 18px;
     }
     .hero-copy p {
-      font-size: 1.02rem;
-      max-width: 700px;
-      margin-bottom: 18px;
+      font-size: 1rem;
+      max-width: 620px;
+      margin-top: 16px;
     }
 
     .hero-actions {
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
-      margin-bottom: 18px;
+      margin-top: 18px;
     }
 
     .btn {
@@ -261,66 +260,52 @@
     .btn:hover,
     .btn:focus-visible,
     .nav-btn:hover,
-    .nav-btn:focus-visible {
-      transform: translateY(-2px);
-    }
+    .nav-btn:focus-visible { transform: translateY(-2px); }
     .btn-primary:hover,
     .btn-primary:focus-visible,
     .nav-btn:hover,
-    .nav-btn:focus-visible {
-      background: var(--yellow-light);
-    }
+    .nav-btn:focus-visible { background: var(--yellow-light); }
     .btn-secondary {
       background: transparent;
       color: var(--white);
       border-color: var(--yellow);
     }
     .btn-secondary:hover,
-    .btn-secondary:focus-visible {
-      background: rgba(244,196,0,0.08);
-    }
+    .btn-secondary:focus-visible { background: rgba(244,196,0,0.08); }
 
-    .proof-row {
+    .price-row,
+    .trust-row {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
       gap: 12px;
       margin-top: 16px;
     }
-    .info-card h3 {
-      font-size: 1rem;
-      margin-bottom: 4px;
-    }
-    .info-card p {
-      font-size: 0.92rem;
-      line-height: 1.45;
-    }
+    .price-row { grid-template-columns: repeat(3, 1fr); }
+    .trust-row { grid-template-columns: repeat(4, 1fr); }
 
-    .price-row {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
-      margin-top: 18px;
-    }
-    .price-chip {
+    .price-chip,
+    .trust-chip {
       background: rgba(255,255,255,0.05);
       border: 1px solid rgba(255,255,255,0.06);
       border-radius: 16px;
-      padding: 14px;
+      padding: 14px 12px;
       text-align: center;
     }
-    .price-chip strong {
+    .price-chip strong,
+    .trust-chip strong {
       display: block;
-      font-size: 1.12rem;
+      font-size: 1.02rem;
       margin-bottom: 2px;
     }
-    .price-chip span {
-      color: var(--soft);
-      font-size: 0.92rem;
+    .price-chip span,
+    .trust-chip span {
+      display: block;
+      font-size: 0.88rem;
       font-weight: 700;
+      line-height: 1.35;
     }
 
     .hero-form h2 {
-      font-size: 1.5rem;
+      font-size: 1.48rem;
       margin-bottom: 8px;
     }
     .mini-note {
@@ -353,11 +338,11 @@
     .form-row textarea::placeholder { color: #ccd5e5; }
     .form-row textarea { min-height: 118px; resize: vertical; }
 
-    .quick-links {
+    .quick-strip {
       background: var(--yellow);
       color: var(--navy-3);
     }
-    .quick-links .container {
+    .quick-strip .container {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 12px;
@@ -380,14 +365,16 @@
     }
 
     .services-grid,
-    .faq-grid,
+    .trust-grid,
     .testimonials-grid,
+    .faq-grid,
     .location-grid {
       display: grid;
       gap: 22px;
     }
     .services-grid,
     .testimonials-grid { grid-template-columns: repeat(3, 1fr); }
+    .trust-grid { grid-template-columns: repeat(4, 1fr); }
     .faq-grid,
     .location-grid { grid-template-columns: 1fr 1fr; }
 
@@ -429,6 +416,12 @@
       font-size: 0.94rem;
     }
 
+    .trust-card h3 {
+      font-size: 1.08rem;
+      margin-bottom: 8px;
+    }
+    .trust-card p { font-size: 0.94rem; }
+
     .location-image img {
       width: 100%;
       height: 100%;
@@ -445,6 +438,13 @@
       margin: 18px 0 22px;
       font-weight: 700;
       font-size: 0.95rem;
+    }
+
+    .contact-band {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr 1fr;
+      gap: 18px;
+      align-items: center;
     }
 
     .cta-box {
@@ -521,13 +521,16 @@
       .hero-grid,
       .location-grid,
       .faq-grid,
-      .footer-grid {
+      .footer-grid,
+      .contact-band {
         grid-template-columns: 1fr;
       }
       .services-grid,
       .testimonials-grid,
-      .proof-row,
-      .price-row {
+      .trust-grid,
+      .price-row,
+      .trust-row,
+      .quick-strip .container {
         grid-template-columns: 1fr 1fr;
       }
     }
@@ -556,13 +559,21 @@
       }
       .nav-btn { border: none; }
       .hero-grid,
-      .proof-row,
-      .price-row,
       .services-grid,
+      .trust-grid,
       .testimonials-grid,
       .faq-grid,
-      .quick-links .container {
+      .location-grid,
+      .price-row,
+      .trust-row,
+      .quick-strip .container {
         grid-template-columns: 1fr;
+      }
+      .hero-copy {
+        padding: 22px 18px;
+      }
+      .hero-copy p {
+        display: none;
       }
       .hero-actions { flex-direction: column; }
       .btn { width: 100%; }
@@ -608,32 +619,7 @@
       <div class="hero-copy">
         <span class="eyebrow">Canterbury • CT2 0EU • Secure Commercial Space</span>
         <h1>Secure <span>Container Storage</span>, Yard Space & HGV Parking in Canterbury</h1>
-        <div class="hero-subheadline">Fast quotes • 24/7 access • Practical commercial site</div>
-        <p>A cleaner homepage structure that gets mobile visitors to the important information faster: what you offer, what it costs, where you are and how to contact you.</p>
-
-        <div class="hero-actions">
-          <a href="tel:07931086447" class="btn btn-primary">Call 07931 086447</a>
-          <a href="#enquire" class="btn btn-secondary">Check Availability</a>
-        </div>
-
-        <div class="proof-row">
-          <div class="info-card">
-            <h3>24/7 Access</h3>
-            <p>Built around practical access for real working schedules.</p>
-          </div>
-          <div class="info-card">
-            <h3>Clear Pricing</h3>
-            <p>Starting prices are visible early so people can decide quickly.</p>
-          </div>
-          <div class="info-card">
-            <h3>Commercial Friendly</h3>
-            <p>Suitable for trades, transport, stock and vehicle storage.</p>
-          </div>
-          <div class="info-card">
-            <h3>Fast Response</h3>
-            <p>Simple enquiry path with phone and form both easy to reach.</p>
-          </div>
-        </div>
+        <div class="hero-subheadline">From £35/week • 24/7 access • Fast quotes</div>
 
         <div class="price-row">
           <div class="price-chip">
@@ -649,11 +635,37 @@
             <span>HGV parking</span>
           </div>
         </div>
+
+        <div class="trust-row">
+          <div class="trust-chip">
+            <strong>24/7</strong>
+            <span>Access</span>
+          </div>
+          <div class="trust-chip">
+            <strong>CCTV</strong>
+            <span>Monitored site</span>
+          </div>
+          <div class="trust-chip">
+            <strong>Easy</strong>
+            <span>Vehicle access</span>
+          </div>
+          <div class="trust-chip">
+            <strong>Fast</strong>
+            <span>Quote response</span>
+          </div>
+        </div>
+
+        <div class="hero-actions">
+          <a href="tel:07931086447" class="btn btn-primary">Call Now</a>
+          <a href="#enquire" class="btn btn-secondary">Get Quote</a>
+        </div>
+
+        <p>Brightwey Secure Storage provides practical space for trades, logistics, commercial vehicles, stock, tools, materials and overflow storage in Canterbury.</p>
       </div>
 
       <div class="hero-form" id="enquire">
         <h2>Request a Fast Quote</h2>
-        <p class="mini-note">One main form keeps the mobile layout cleaner than repeating forms further down the page.</p>
+        <p class="mini-note">A single clear form keeps the top section cleaner and more focused on mobile.</p>
 
         <form action="https://api.web3forms.com/submit" method="POST">
           <input type="hidden" name="access_key" value="7c6ab2c6-1523-4081-8c86-6b2134ea1663" />
@@ -693,19 +705,19 @@
     </div>
   </section>
 
-  <div class="quick-links">
+  <div class="quick-strip">
     <div class="container">
       <div>Fast Quotes</div>
       <div>Flexible Terms</div>
       <div>Canterbury Location</div>
-      <div>Easy Access</div>
+      <div>Commercial Access</div>
     </div>
   </div>
 
   <section id="services">
     <div class="container">
       <h2 class="section-title">Choose the Space You Need</h2>
-      <p class="section-subtitle">A cleaner service section puts the main choices first so mobile visitors can self-select immediately.</p>
+      <p class="section-subtitle">The main options come first so mobile visitors can decide quickly instead of scrolling through repeated sections.</p>
 
       <div class="services-grid">
         <article class="service-card">
@@ -771,22 +783,22 @@
   <section id="why-us">
     <div class="container">
       <h2 class="section-title">Why Choose Brightwey</h2>
-      <p class="section-subtitle">Instead of repeating similar points across several sections, these are grouped into one stronger trust block.</p>
+      <p class="section-subtitle">This trust section replaces multiple repeated benefit sections with one cleaner block.</p>
 
-      <div class="proof-row">
-        <div class="info-card">
+      <div class="trust-grid">
+        <div class="trust-card">
           <h3>Secure Site</h3>
           <p>CCTV monitored and positioned in a practical industrial setting.</p>
         </div>
-        <div class="info-card">
+        <div class="trust-card">
           <h3>Built for Business</h3>
           <p>Strong fit for trades, contractors, logistics and storage overflow.</p>
         </div>
-        <div class="info-card">
+        <div class="trust-card">
           <h3>Simple Enquiry</h3>
           <p>Call, email or request a quote without extra friction.</p>
         </div>
-        <div class="info-card">
+        <div class="trust-card">
           <h3>Flexible Options</h3>
           <p>Suitable for short-term or longer-term use depending on need.</p>
         </div>
@@ -799,7 +811,7 @@
       <div class="location-panel">
         <h3>Easy-to-Find Canterbury Location</h3>
         <p>Located at Eureka Industrial Estate, Staines Hill, Canterbury, CT2 0EU, our site is easy to access and suitable for commercial use.</p>
-        <p>This keeps the location, contact info and conversion points together so mobile users do not have to hunt for them later.</p>
+        <p>The location, contact info and action buttons stay together so users do not need to hunt for them later.</p>
 
         <ul class="contact-list">
           <li><strong>Phone:</strong> <a href="tel:07931086447">07931 086447</a></li>
@@ -808,7 +820,7 @@
           <li><strong>Access:</strong> 24/7 access available</li>
         </ul>
 
-        <div class="hero-actions" style="margin-bottom:0;">
+        <div class="hero-actions" style="margin-top:0;">
           <a href="https://www.google.co.uk/maps/place/Brightwey+Secure+Storage+%26+Yard+Space/" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Get Directions</a>
           <a href="#faq" class="btn btn-secondary">View FAQ</a>
         </div>
@@ -822,8 +834,26 @@
 
   <section>
     <div class="container">
+      <div class="contact-band">
+        <div>
+          <h3 style="color: var(--yellow); margin-bottom: 6px;">Contact Brightwey</h3>
+          <p style="color: var(--soft);">Call, email or send a quick enquiry to check availability and pricing.</p>
+        </div>
+        <div style="color: var(--soft); font-weight: 700;">
+          <div>07931 086447</div>
+          <div>info@brightwey.co.uk</div>
+        </div>
+        <div class="hero-actions" style="margin-top:0; margin-bottom:0;">
+          <a href="tel:07931086447" class="btn btn-primary">Call Now</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
       <h2 class="section-title">What Customers Say</h2>
-      <p class="section-subtitle">A short review section gives social proof without making the page feel heavy on mobile.</p>
+      <p class="section-subtitle">A short review section adds proof without making the mobile page feel heavy.</p>
 
       <div class="testimonials-grid">
         <div class="testimonial">
@@ -858,7 +888,7 @@
   <section id="faq">
     <div class="container">
       <h2 class="section-title">Frequently Asked Questions</h2>
-      <p class="section-subtitle">Expandable FAQ items keep your information while making the page cleaner and easier to scan.</p>
+      <p class="section-subtitle">Expandable FAQ items keep the detail without cluttering the layout.</p>
 
       <div class="faq-grid">
         <details class="faq-item">
