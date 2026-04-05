@@ -6,77 +6,12 @@
   <title>Container Storage Canterbury | Yard Space & HGV Parking | Brightwey Secure Storage</title>
   <meta name="description" content="Secure container storage, open yard space and HGV parking in Canterbury. Flexible terms, straightforward pricing, 24/7 access and fast quotes from Brightwey Secure Storage." />
   <meta name="theme-color" content="#0b1630" />
-  <meta name="robots" content="index,follow" />
   <meta property="og:title" content="Brightwey Secure Storage | Container Storage, Yard Space & HGV Parking Canterbury" />
   <meta property="og:description" content="Secure container storage, open yard space and HGV parking in Canterbury with flexible terms, 24/7 access and fast quotes." />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Brightwey Secure Storage" />
-  <meta property="og:url" content="https://brightwey-storage-website.vercel.app/" />
-  <meta property="og:image" content="https://raw.githubusercontent.com/DavidFearne248/brightwey-storage-website/main/Row%20of%20shipping%20containers%20in%20daylight2.png" />
   <meta name="format-detection" content="telephone=yes" />
   <link rel="canonical" href="https://brightwey-storage-website.vercel.app/" />
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "SelfStorage",
-    "name": "Brightwey Secure Storage",
-    "url": "https://brightwey-storage-website.vercel.app/",
-    "telephone": "07931086447",
-    "email": "info@brightwey.co.uk",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "Eureka Industrial Estate, Staines Hill",
-      "addressLocality": "Canterbury",
-      "postalCode": "CT2 0EU",
-      "addressCountry": "GB"
-    },
-    "areaServed": "Canterbury, Kent",
-    "description": "Secure container storage, open yard space and HGV parking in Canterbury.",
-    "priceRange": "£25 - £250+"
-  }
-  </script>
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "Who is your storage suitable for?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Our site suits businesses, trades, transport operators and individuals needing practical storage or parking space in Canterbury."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Do you offer flexible terms?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes. We offer flexible options depending on the type of space you need and how long you need it for."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Can I enquire about more than one service?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes. If you need a combination of storage, yard space and HGV parking, include that in your enquiry."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "How do I check availability?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Call, email or use the quote form on this page and we can confirm current options."
-        }
-      }
-    ]
-  }
-  </script>
 
   <style>
     :root {
@@ -659,16 +594,49 @@
       gap: 24px;
     }
 
-    .service-card {
+    .service-card,
+    .gallery-card,
+    .location-image {
       overflow: hidden;
     }
 
-    .service-card img {
+    .media-frame {
       width: 100%;
+      overflow: hidden;
+      border-radius: 16px;
+      border: 2px solid var(--yellow);
+      box-shadow: var(--shadow);
+      background: transparent;
+    }
+
+    .media-frame--service {
       height: 220px;
-      object-fit: cover;
+    }
+
+    .media-frame--gallery {
+      height: 250px;
+    }
+
+    .media-frame--location {
+      height: 100%;
+      min-height: 420px;
+    }
+
+    .media-frame img {
+      width: 100%;
+      height: 100%;
+      display: block;
       object-position: center;
       filter: contrast(1.05) brightness(0.95);
+    }
+
+    .media-fit-contain img {
+      object-fit: contain;
+      background: transparent;
+    }
+
+    .media-fit-cover img {
+      object-fit: cover;
     }
 
     .service-body {
@@ -758,43 +726,13 @@
       margin-bottom: 14px;
     }
 
-    .location-image img,
-    .gallery-grid img {
-      width: 100%;
-      height: 250px;
-      object-fit: cover;
-      border-radius: 16px;
-      border: 2px solid var(--yellow);
-      box-shadow: var(--shadow);
-      filter: contrast(1.05) brightness(0.95);
-    }
-
-    .location-image img {
-      height: 100%;
-      min-height: 420px;
-    }
-
-    .inside-service-image {
-      object-fit: contain !important;
-      object-position: center !important;
-      background: #081224;
-      padding: 10px;
-    }
-
-   .inside-gallery-image {
-  object-fit: contain !important;
-  object-position: center !important;
-  background: transparent !important;
-  padding: 0 !important;
-  width: 100%;
-}
-
     figure.image-figure {
-      display: grid;
-      gap: 8px;
+      display: block;
+      margin: 0;
     }
 
     figcaption {
+      margin-top: 8px;
       font-size: 0.92rem;
       font-weight: 700;
     }
@@ -916,15 +854,6 @@
       color: var(--white);
     }
 
-    a:focus-visible,
-    button:focus-visible,
-    input:focus-visible,
-    select:focus-visible,
-    textarea:focus-visible {
-      outline: 3px solid var(--yellow);
-      outline-offset: 3px;
-    }
-
     @media (max-width: 1180px) {
       .hero-layout {
         grid-template-columns: 1fr;
@@ -1028,19 +957,6 @@
         grid-template-columns: 1fr;
       }
 
-      .service-card img,
-      .location-image img,
-      .gallery-grid img {
-        height: 220px;
-        min-height: 220px;
-        object-fit: cover;
-      }
-
-      .inside-service-image,
-      .inside-gallery-image {
-        object-fit: contain !important;
-      }
-
       .topbar .container {
         gap: 8px;
         font-size: 0.8rem;
@@ -1062,6 +978,18 @@
       .sticky-cta a {
         flex: 1 1 0;
         text-align: center;
+      }
+
+      .media-frame--service {
+        height: 220px;
+      }
+
+      .media-frame--gallery {
+        height: 220px;
+      }
+
+      .media-frame--location {
+        min-height: 220px;
       }
     }
   </style>
@@ -1186,8 +1114,13 @@
               </div>
 
               <div class="form-row">
-                <label for="hero-contact">Phone or Email</label>
-                <input id="hero-contact" name="contact" type="text" placeholder="Your phone number or email address" required />
+                <label for="hero-phone">Phone Number</label>
+                <input id="hero-phone" name="phone" type="tel" placeholder="Your phone number" required />
+              </div>
+
+              <div class="form-row">
+                <label for="hero-email">Email Address</label>
+                <input id="hero-email" name="email" type="email" placeholder="Your email address" required />
               </div>
 
               <div class="form-row">
@@ -1207,7 +1140,7 @@
               </div>
 
               <button type="submit" class="btn btn-primary">Get My Quote</button>
-              <div class="form-note">Prices shown are starting prices and are subject to availability. Contact us for current options and exact space details.</div>
+              <div class="form-note">We aim to respond quickly to container storage, yard space and HGV parking enquiries.</div>
             </form>
           </div>
         </div>
@@ -1253,7 +1186,9 @@
         <div class="services-grid">
           <article class="service-card">
             <figure class="image-figure">
-              <img src="https://raw.githubusercontent.com/DavidFearne248/brightwey-storage-website/main/Open%20container%20with%20clean%20interior2.png" alt="Clean 20ft container storage interior in Canterbury for business and personal use" loading="lazy" class="inside-service-image" />
+              <div class="media-frame media-frame--service media-fit-contain">
+                <img src="https://raw.githubusercontent.com/DavidFearne248/brightwey-storage-website/main/Open%20container%20with%20clean%20interior2.png" alt="Clean 20ft container storage interior in Canterbury for business and personal use" loading="lazy" />
+              </div>
               <figcaption>Clean, dry and ready-to-use container storage units at our Canterbury site.</figcaption>
             </figure>
             <div class="service-body">
@@ -1273,7 +1208,9 @@
           </article>
 
           <article class="service-card">
-            <img src="https://raw.githubusercontent.com/DavidFearne248/brightwey-storage-website/main/Brightwey%20Ltd%20open%20yard%20and%20storage2.png" alt="Open yard space at Brightwey Secure Storage in Canterbury" loading="lazy" />
+            <div class="media-frame media-frame--service media-fit-cover">
+              <img src="https://raw.githubusercontent.com/DavidFearne248/brightwey-storage-website/main/Brightwey%20Ltd%20open%20yard%20and%20storage2.png" alt="Open yard space at Brightwey Secure Storage in Canterbury" loading="lazy" />
+            </div>
             <div class="service-body">
               <h3>Open Yard Space</h3>
               <p>Flexible outdoor yard space for materials, vehicles, plant, equipment and wider commercial use.</p>
@@ -1291,7 +1228,9 @@
           </article>
 
           <article class="service-card">
-            <img src="https://raw.githubusercontent.com/DavidFearne248/brightwey-storage-website/main/Trucks%20lined%20up%20in%20industrial%20yard%203.png" alt="HGV parking area at Brightwey Secure Storage" loading="lazy" />
+            <div class="media-frame media-frame--service media-fit-cover">
+              <img src="https://raw.githubusercontent.com/DavidFearne248/brightwey-storage-website/main/Trucks%20lined%20up%20in%20industrial%20yard%203.png" alt="HGV parking area at Brightwey Secure Storage" loading="lazy" />
+            </div>
             <div class="service-body">
               <h3>HGV Parking</h3>
               <p>Secure parking for HGVs, vans and commercial vehicles with practical access for short stays or regular use.</p>
@@ -1340,7 +1279,7 @@
     <section id="uses">
       <div class="container">
         <h2 class="section-title">Who It’s For</h2>
-        <p class="section-subtitle">Our site is designed for businesses and individuals who need practical, reliable space in Canterbury and the surrounding Kent area.</p>
+        <p class="section-subtitle">Our site is designed for businesses and individuals who need practical, reliable space in Canterbury.</p>
         <div class="audience-tags" style="justify-content:center;">
           <span>Trades &amp; Contractors</span>
           <span>Builders &amp; Installers</span>
@@ -1356,21 +1295,25 @@
 
     <section>
       <div class="container">
-        <h2 class="section-title">What Makes Brightwey Practical</h2>
-        <p class="section-subtitle">Straightforward pricing, practical access and flexible space make it easier to arrange what you need.</p>
+        <h2 class="section-title">Why Customers Use Our Site</h2>
+        <p class="section-subtitle">Simple pricing, practical access and flexible space make it easier to arrange what you need.</p>
 
-        <div class="reviews-grid">
-          <div class="review-card">
-            <p>Container storage, yard space and HGV parking available in one practical Canterbury location.</p>
-            <strong>One Site, Multiple Options</strong>
+        <div class="benefits-grid">
+          <div class="benefit-card">
+            <h3>Secure Local Site</h3>
+            <p>Keep equipment, vehicles and materials in a practical Canterbury location.</p>
           </div>
-          <div class="review-card">
-            <p>Starting prices are shown clearly so it is easier to plan before you enquire.</p>
-            <strong>Simple Pricing</strong>
+          <div class="benefit-card">
+            <h3>Clear Pricing</h3>
+            <p>Starting prices are easy to understand, helping you decide more quickly.</p>
           </div>
-          <div class="review-card">
-            <p>Suitable for business storage, vehicle parking, equipment, materials and operational overflow.</p>
-            <strong>Flexible Use</strong>
+          <div class="benefit-card">
+            <h3>Flexible Options</h3>
+            <p>Short-term or longer-term arrangements depending on your needs and availability.</p>
+          </div>
+          <div class="benefit-card">
+            <h3>Commercial Access</h3>
+            <p>Suitable for cars, vans, HGVs and general business use.</p>
           </div>
         </div>
       </div>
@@ -1405,7 +1348,7 @@
       <div class="container">
         <h2 class="section-title">Simple Pricing</h2>
         <p style="text-align:center; color:var(--yellow); font-weight:800; margin-top:-10px; margin-bottom:20px;">Check current availability today</p>
-        <p class="section-subtitle">Clear starting prices for each service. Contact us for current availability, exact options and full commercial details.</p>
+        <p class="section-subtitle">Clear starting prices for each service. Contact us for current availability and exact options.</p>
 
         <div class="pricing-grid">
           <div class="price-card">
@@ -1447,8 +1390,6 @@
             <a href="tel:07931086447" class="btn btn-primary">Book Space</a>
           </div>
         </div>
-
-        <p class="section-subtitle" style="margin-top:24px; margin-bottom:0;">Prices shown are starting prices and are subject to availability.</p>
       </div>
     </section>
 
@@ -1457,7 +1398,7 @@
         <div class="location-copy">
           <h3>Easy-to-Find Canterbury Location</h3>
           <p>Located at Eureka Industrial Estate, Staines Hill, Canterbury, CT2 0EU, our site is easy to reach and suitable for commercial use.</p>
-          <p>A practical location for businesses, trades and transport operators working in and around Canterbury, including surrounding parts of Kent.</p>
+          <p>A practical location for businesses, trades and transport operators working in and around Canterbury.</p>
 
           <ul class="location-points">
             <li>Container storage from £35 per week</li>
@@ -1472,7 +1413,9 @@
         </div>
 
         <div class="location-image">
-          <img src="https://raw.githubusercontent.com/DavidFearne248/brightwey-storage-website/main/Brightwey%20Ltd%20open%20yard%20and%20storage2.png" alt="Brightwey secure yard and commercial space in Canterbury" loading="lazy" />
+          <div class="media-frame media-frame--location media-fit-cover">
+            <img src="https://raw.githubusercontent.com/DavidFearne248/brightwey-storage-website/main/Brightwey%20Ltd%20open%20yard%20and%20storage2.png" alt="Brightwey secure yard and commercial space in Canterbury" loading="lazy" />
+          </div>
         </div>
       </div>
     </section>
@@ -1518,10 +1461,122 @@
         <p class="section-subtitle">Photos of the yard, containers and vehicle access so you can see the site before enquiring.</p>
 
         <div class="gallery-grid">
-          <img src="https://raw.githubusercontent.com/DavidFearne248/brightwey-storage-website/main/Brightwey%20Ltd%20open%20yard%20and%20storage2.png" alt="Open yard and commercial space at Brightwey" loading="lazy" />
-          <img src="https://raw.githubusercontent.com/DavidFearne248/brightwey-storage-website/main/Open%20container%20with%20clean%20interior2.png" alt="Clean 20ft container storage interior in Canterbury for business and personal use" loading="lazy" class="inside-gallery-image" />
-          <img src="https://raw.githubusercontent.com/DavidFearne248/brightwey-storage-website/main/Row%20of%20shipping%20containers%20in%20daylight2.png" alt="Row of secure storage containers at Brightwey" loading="lazy" />
-          <img src="https://raw.githubusercontent.com/DavidFearne248/brightwey-storage-website/main/Trucks%20lined%20up%20in%20industrial%20yard%203.png" alt="Commercial vehicle and HGV parking area" loading="lazy" />
+          <div class="gallery-card">
+            <div class="media-frame media-frame--gallery media-fit-cover">
+              <img src="https://raw.githubusercontent.com/DavidFearne248/brightwey-storage-website/main/Brightwey%20Ltd%20open%20yard%20and%20storage2.png" alt="Open yard and commercial space at Brightwey" loading="lazy" />
+            </div>
+          </div>
+
+          <div class="gallery-card">
+            <div class="media-frame media-frame--gallery media-fit-contain">
+              <img src="https://raw.githubusercontent.com/DavidFearne248/brightwey-storage-website/main/Open%20container%20with%20clean%20interior2.png" alt="Clean 20ft container storage interior in Canterbury for business and personal use" loading="lazy" />
+            </div>
+          </div>
+
+          <div class="gallery-card">
+            <div class="media-frame media-frame--gallery media-fit-cover">
+              <img src="https://raw.githubusercontent.com/DavidFearne248/brightwey-storage-website/main/Row%20of%20shipping%20containers%20in%20daylight2.png" alt="Row of secure storage containers at Brightwey" loading="lazy" />
+            </div>
+          </div>
+
+          <div class="gallery-card">
+            <div class="media-frame media-frame--gallery media-fit-cover">
+              <img src="https://raw.githubusercontent.com/DavidFearne248/brightwey-storage-website/main/Trucks%20lined%20up%20in%20industrial%20yard%203.png" alt="Commercial vehicle and HGV parking area" loading="lazy" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <h2 class="section-title">Why Businesses Choose Us</h2>
+        <p class="section-subtitle">Brightwey is designed to offer practical space with simple communication and easy access.</p>
+
+        <div class="reviews-grid">
+          <div class="review-card">
+            <p>Secure container, yard and parking options in one location.</p>
+            <strong>Practical Site</strong>
+          </div>
+          <div class="review-card">
+            <p>Straightforward pricing and flexible options depending on availability.</p>
+            <strong>Clear Setup</strong>
+          </div>
+          <div class="review-card">
+            <p>Suitable for business storage, vehicle parking and operational overflow.</p>
+            <strong>Flexible Use</strong>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="quote-band">
+      <div class="container form-grid">
+        <div class="panel">
+          <h2 style="color: var(--yellow); margin-bottom: 10px; font-size: 1.6rem;">Get a Fast Quote</h2>
+          <p class="subcopy" style="margin-bottom: 20px;">Tell us what you need and we’ll get back to you as quickly as possible.</p>
+
+          <form action="https://api.web3forms.com/submit" method="POST" aria-label="Lower quote form">
+            <input type="hidden" name="access_key" value="7c6ab2c6-1523-4081-8c86-6b2134ea1663" />
+            <input type="hidden" name="subject" value="New enquiry from Brightwey website" />
+            <input type="hidden" name="from_name" value="Brightwey Website" />
+            <input type="checkbox" name="botcheck" style="display:none;" tabindex="-1" autocomplete="off" />
+
+            <div class="form-row">
+              <label for="quote-name">Full Name</label>
+              <input id="quote-name" name="name" type="text" placeholder="Your full name" required />
+            </div>
+
+            <div class="form-row">
+              <label for="quote-phone">Phone Number</label>
+              <input id="quote-phone" name="phone" type="tel" placeholder="Your phone number" required />
+            </div>
+
+            <div class="form-row">
+              <label for="quote-email">Email Address</label>
+              <input id="quote-email" name="email" type="email" placeholder="Your email address" required />
+            </div>
+
+            <div class="form-row">
+              <label for="quote-service">Service Needed</label>
+              <select id="quote-service" name="service" required>
+                <option value="">Select a service</option>
+                <option>Container Storage</option>
+                <option>Open Yard Space</option>
+                <option>HGV Parking</option>
+                <option>More Than One Service</option>
+              </select>
+            </div>
+
+            <div class="form-row">
+              <label for="quote-message">What space do you need?</label>
+              <textarea id="quote-message" name="message" placeholder="Tell us what you need, when you need it and how long for."></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Send Enquiry</button>
+            <div class="form-note">Fast response for container storage, yard space and HGV parking enquiries.</div>
+          </form>
+        </div>
+
+        <div class="contact-card" id="contact">
+          <h3>Contact Brightwey</h3>
+          <p>Call, email or send a quick enquiry to check availability and pricing.</p>
+
+          <ul class="contact-list">
+            <li><strong>Phone:</strong> <a href="tel:07931086447">07931 086447</a></li>
+            <li><strong>Email:</strong> <a href="mailto:info@brightwey.co.uk">info@brightwey.co.uk</a></li>
+            <li><strong>Address:</strong> Eureka Industrial Estate, Staines Hill, Canterbury, CT2 0EU</li>
+            <li><strong>Access:</strong> 24/7 access available</li>
+          </ul>
+
+          <h3 style="margin-top:24px;">Best Fit For</h3>
+          <ul class="contact-list">
+            <li>Trades and contractors</li>
+            <li>Transport and logistics operators</li>
+            <li>Vehicle and equipment storage</li>
+            <li>Business stock and overflow</li>
+            <li>Personal storage requirements</li>
+          </ul>
         </div>
       </div>
     </section>
@@ -1535,48 +1590,6 @@
             <a href="tel:07931086447" class="btn btn-primary">Call Now</a>
             <a href="#enquire" class="btn btn-secondary">Request a Quote</a>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <div class="container form-grid">
-        <div class="panel" id="contact">
-          <h2 style="color: var(--yellow); margin-bottom: 10px; font-size: 1.6rem;">Contact Brightwey</h2>
-          <p class="subcopy" style="margin-bottom: 20px;">Call, email or send a quick enquiry to check availability and pricing.</p>
-
-          <ul class="contact-list">
-            <li><strong>Phone:</strong> <a href="tel:07931086447">07931 086447</a></li>
-            <li><strong>Email:</strong> <a href="mailto:info@brightwey.co.uk">info@brightwey.co.uk</a></li>
-            <li><strong>Address:</strong> Eureka Industrial Estate, Staines Hill, Canterbury, CT2 0EU</li>
-            <li><strong>Access:</strong> 24/7 access available</li>
-          </ul>
-
-          <div class="hero-actions">
-            <a href="tel:07931086447" class="btn btn-primary">Call Now</a>
-            <a href="mailto:info@brightwey.co.uk" class="btn btn-secondary">Email Us</a>
-          </div>
-        </div>
-
-        <div class="contact-card">
-          <h3>Best Fit For</h3>
-          <p>Our site suits businesses and individuals looking for practical space with straightforward access.</p>
-
-          <ul class="contact-list">
-            <li>Trades and contractors</li>
-            <li>Transport and logistics operators</li>
-            <li>Vehicle and equipment storage</li>
-            <li>Business stock and overflow</li>
-            <li>Personal storage requirements</li>
-          </ul>
-
-          <h3 style="margin-top:24px;">What to Include in Your Enquiry</h3>
-          <ul class="contact-list">
-            <li>What type of space you need</li>
-            <li>When you want to start</li>
-            <li>Roughly how long you need it for</li>
-            <li>Any access or vehicle requirements</li>
-          </ul>
         </div>
       </div>
     </section>
@@ -1647,9 +1660,8 @@
       const dotsWrap = document.getElementById('heroDots');
       const prevBtn = document.getElementById('heroPrev');
       const nextBtn = document.getElementById('heroNext');
-      const slider = document.querySelector('.hero-slider-card');
 
-      if (!slides.length || !dotsWrap || !prevBtn || !nextBtn || !slider) return;
+      if (!slides.length || !dotsWrap || !prevBtn || !nextBtn) return;
 
       let current = 0;
       let timer;
@@ -1658,7 +1670,6 @@
         const dot = document.createElement('button');
         dot.className = 'hero-dot' + (index === 0 ? ' active' : '');
         dot.setAttribute('aria-label', 'Go to slide ' + (index + 1));
-        dot.setAttribute('aria-pressed', index === 0 ? 'true' : 'false');
         dot.type = 'button';
         dot.addEventListener('click', () => {
           goTo(index);
@@ -1672,13 +1683,9 @@
       function goTo(index) {
         slides[current].classList.remove('active');
         dots[current].classList.remove('active');
-        dots[current].setAttribute('aria-pressed', 'false');
-
         current = (index + slides.length) % slides.length;
-
         slides[current].classList.add('active');
         dots[current].classList.add('active');
-        dots[current].setAttribute('aria-pressed', 'true');
       }
 
       function next() {
@@ -1693,12 +1700,8 @@
         timer = setInterval(next, 4500);
       }
 
-      function stop() {
-        clearInterval(timer);
-      }
-
       function restart() {
-        stop();
+        clearInterval(timer);
         start();
       }
 
@@ -1712,17 +1715,11 @@
         restart();
       });
 
-      slider.addEventListener('mouseenter', stop);
-      slider.addEventListener('mouseleave', start);
-      slider.addEventListener('focusin', stop);
-      slider.addEventListener('focusout', start);
-
       start();
     })();
   </script>
 </body>
 </html>
-
 
 
 
