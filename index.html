@@ -1088,7 +1088,7 @@
             <h2>Request a Fast Quote</h2>
             <p class="subcopy">Tell us what space you need, when you need it and roughly how long for.</p>
 
-            <form action="https://api.web3forms.com/submit" method="POST">
+            <form action="https://api.web3forms.com/submit" method="POST" aria-label="Hero quote form">
               <input type="hidden" name="access_key" value="7c6ab2c6-1523-4081-8c86-6b2134ea1663" />
               <input type="hidden" name="subject" value="New enquiry from Brightwey website" />
               <input type="hidden" name="from_name" value="Brightwey Website" />
@@ -1417,7 +1417,7 @@
             width="100%"
             height="450"
             style="border:0;"
-            allowfullscreen=""
+            allowfullscreen
             loading="lazy"
             referrerpolicy="no-referrer-when-downgrade"
             title="Map showing Brightwey Secure Storage location">
@@ -1472,30 +1472,30 @@
           <h2 style="color: var(--yellow); margin-bottom: 10px; font-size: 1.6rem;">Get a Fast Quote</h2>
           <p class="subcopy" style="margin-bottom: 20px;">Tell us what you need and we’ll get back to you as quickly as possible.</p>
 
-          <form action="https://api.web3forms.com/submit" method="POST">
+          <form action="https://api.web3forms.com/submit" method="POST" aria-label="Lower quote form">
             <input type="hidden" name="access_key" value="7c6ab2c6-1523-4081-8c86-6b2134ea1663" />
             <input type="hidden" name="subject" value="New enquiry from Brightwey website" />
             <input type="hidden" name="from_name" value="Brightwey Website" />
             <input type="checkbox" name="botcheck" style="display:none;" tabindex="-1" autocomplete="off" />
 
             <div class="form-row">
-              <label for="name">Full Name</label>
-              <input id="name" name="name" type="text" placeholder="Your full name" required />
+              <label for="quote-name">Full Name</label>
+              <input id="quote-name" name="name" type="text" placeholder="Your full name" required />
             </div>
 
             <div class="form-row">
-              <label for="phone">Phone Number</label>
-              <input id="phone" name="phone" type="tel" placeholder="Your phone number" required />
+              <label for="quote-phone">Phone Number</label>
+              <input id="quote-phone" name="phone" type="tel" placeholder="Your phone number" required />
             </div>
 
             <div class="form-row">
-              <label for="email">Email Address</label>
-              <input id="email" name="email" type="email" placeholder="Your email address" required />
+              <label for="quote-email">Email Address</label>
+              <input id="quote-email" name="email" type="email" placeholder="Your email address" required />
             </div>
 
             <div class="form-row">
-              <label for="service">Service Needed</label>
-              <select id="service" name="service" required>
+              <label for="quote-service">Service Needed</label>
+              <select id="quote-service" name="service" required>
                 <option value="">Select a service</option>
                 <option>Container Storage</option>
                 <option>Open Yard Space</option>
@@ -1505,8 +1505,8 @@
             </div>
 
             <div class="form-row">
-              <label for="message">What space do you need?</label>
-              <textarea id="message" name="message" placeholder="Tell us what you need, when you need it and how long for."></textarea>
+              <label for="quote-message">What space do you need?</label>
+              <textarea id="quote-message" name="message" placeholder="Tell us what you need, when you need it and how long for."></textarea>
             </div>
 
             <button type="submit" class="btn btn-primary">Send Enquiry</button>
@@ -1676,7 +1676,6 @@
   </script>
 </body>
 </html>
-
 
 
 
