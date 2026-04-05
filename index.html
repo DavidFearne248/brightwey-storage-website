@@ -708,6 +708,20 @@
       min-height: 420px;
     }
 
+    .inside-service-image {
+      object-fit: contain !important;
+      object-position: center !important;
+      background: #081224;
+      padding: 10px;
+    }
+
+    .inside-gallery-image {
+      object-fit: contain !important;
+      object-position: center !important;
+      background: #081224;
+      padding: 10px;
+    }
+
     .review-card p {
       margin-bottom: 14px;
       font-style: italic;
@@ -936,6 +950,11 @@
         object-fit: cover;
       }
 
+      .inside-service-image,
+      .inside-gallery-image {
+        object-fit: contain !important;
+      }
+
       .topbar .container {
         gap: 8px;
         font-size: 0.8rem;
@@ -1152,7 +1171,7 @@
 
         <div class="services-grid">
           <article class="service-card">
-            <img src="https://raw.githubusercontent.com/DavidFearne248/brightwey-storage-website/main/Inside%2020ft.jpeg" alt="Inside Brightwey storage container" loading="lazy" />
+            <img src="https://raw.githubusercontent.com/DavidFearne248/brightwey-storage-website/main/Inside%2020ft.jpeg" alt="Inside Brightwey storage container" loading="lazy" class="inside-service-image" />
             <div class="service-body">
               <h3>Container Storage</h3>
               <p>Secure container storage for stock, tools, equipment, furniture and general business or personal storage.</p>
@@ -1418,7 +1437,7 @@
 
         <div class="gallery-grid">
           <img src="https://raw.githubusercontent.com/DavidFearne248/brightwey-storage-website/main/Brightwey%20Ltd%20open%20yard%20and%20storage2.png" alt="Open yard and commercial space at Brightwey" loading="lazy" />
-          <img src="https://raw.githubusercontent.com/DavidFearne248/brightwey-storage-website/main/inside-container.png" alt="Inside secure container storage" loading="lazy" />
+          <img src="https://raw.githubusercontent.com/DavidFearne248/brightwey-storage-website/main/Inside%2020ft.jpeg" alt="Inside secure container storage at Brightwey" loading="lazy" class="inside-gallery-image" />
           <img src="https://raw.githubusercontent.com/DavidFearne248/brightwey-storage-website/main/Row%20of%20shipping%20containers%20in%20daylight2.png" alt="Row of secure storage containers at Brightwey" loading="lazy" />
           <img src="https://raw.githubusercontent.com/DavidFearne248/brightwey-storage-website/main/Trucks%20lined%20up%20in%20industrial%20yard%203.png" alt="Commercial vehicle and HGV parking area" loading="lazy" />
         </div>
