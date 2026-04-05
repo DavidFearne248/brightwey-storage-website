@@ -10,6 +10,7 @@
   <meta property="og:description" content="Secure container storage, open yard space and HGV parking in Canterbury with flexible terms, 24/7 access and fast quotes." />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Brightwey Secure Storage" />
+  <meta property="og:image" content="https://raw.githubusercontent.com/DavidFearne248/brightwey-storage-website/main/Row%20of%20shipping%20containers%20in%20daylight2.png" />
   <meta name="format-detection" content="telephone=yes" />
   <link rel="canonical" href="https://brightwey-storage-website.vercel.app/" />
 
@@ -27,10 +28,14 @@
       --border: rgba(244, 196, 0, 0.18);
       --shadow: 0 18px 42px rgba(0, 0, 0, 0.26);
       --radius: 22px;
+      --frame-radius: 16px;
       --max: 1200px;
       --section-pad: clamp(64px, 8vw, 96px);
       --card-pad: clamp(22px, 3vw, 30px);
       --header-height: 92px;
+      --service-image-height: 240px;
+      --gallery-image-height: 250px;
+      --location-image-height: 420px;
     }
 
     * {
@@ -376,8 +381,7 @@
     .subcopy,
     .step-text,
     .price-chip span,
-    .trust-chip span,
-    figcaption {
+    .trust-chip span {
       color: var(--soft);
     }
 
@@ -576,6 +580,7 @@
     .services-grid,
     .pricing-grid {
       grid-template-columns: repeat(3, 1fr);
+      align-items: start;
     }
 
     .benefits-grid {
@@ -584,6 +589,7 @@
 
     .gallery-grid {
       grid-template-columns: repeat(4, 1fr);
+      align-items: start;
     }
 
     .location-wrap,
@@ -603,23 +609,27 @@
     .media-frame {
       width: 100%;
       overflow: hidden;
-      border-radius: 16px;
+      border-radius: var(--frame-radius);
       border: 2px solid var(--yellow);
       box-shadow: var(--shadow);
       background: transparent;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .media-frame--service {
-      height: 220px;
+      height: var(--service-image-height);
+      margin-bottom: 0;
     }
 
     .media-frame--gallery {
-      height: 250px;
+      height: var(--gallery-image-height);
     }
 
     .media-frame--location {
+      min-height: var(--location-image-height);
       height: 100%;
-      min-height: 420px;
     }
 
     .media-frame img {
@@ -627,12 +637,8 @@
       height: 100%;
       display: block;
       object-position: center;
+      object-fit: cover;
       filter: contrast(1.05) brightness(0.95);
-    }
-
-    .media-fit-contain img {
-      object-fit: contain;
-      background: transparent;
     }
 
     .media-fit-cover img {
@@ -724,17 +730,6 @@
       letter-spacing: 0.08em;
       text-transform: uppercase;
       margin-bottom: 14px;
-    }
-
-    figure.image-figure {
-      display: block;
-      margin: 0;
-    }
-
-    figcaption {
-      margin-top: 8px;
-      font-size: 0.92rem;
-      font-weight: 700;
     }
 
     .review-card p {
@@ -980,16 +975,10 @@
         text-align: center;
       }
 
-      .media-frame--service {
-        height: 220px;
-      }
-
-      .media-frame--gallery {
-        height: 220px;
-      }
-
-      .media-frame--location {
-        min-height: 220px;
+      :root {
+        --service-image-height: 220px;
+        --gallery-image-height: 220px;
+        --location-image-height: 220px;
       }
     }
   </style>
@@ -1185,12 +1174,13 @@
 
         <div class="services-grid">
           <article class="service-card">
-            <figure class="image-figure">
-              <div class="media-frame media-frame--service media-fit-contain">
-                <img src="https://raw.githubusercontent.com/DavidFearne248/brightwey-storage-website/main/Open%20container%20with%20clean%20interior2.png" alt="Clean 20ft container storage interior in Canterbury for business and personal use" loading="lazy" />
-              </div>
-              <figcaption>Clean, dry and ready-to-use container storage units at our Canterbury site.</figcaption>
-            </figure>
+            <div class="media-frame media-frame--service media-fit-cover">
+              <img
+                src="https://images.unsplash.com/photo-1750148279308-f14103b423bf?auto=format&fit=crop&q=80&w=1200"
+                alt="Open shipping container with empty interior"
+                loading="lazy"
+              />
+            </div>
             <div class="service-body">
               <h3>Container Storage</h3>
               <p>Secure container storage for stock, tools, equipment, furniture and general business or personal storage.</p>
@@ -1468,8 +1458,12 @@
           </div>
 
           <div class="gallery-card">
-            <div class="media-frame media-frame--gallery media-fit-contain">
-              <img src="https://raw.githubusercontent.com/DavidFearne248/brightwey-storage-website/main/Open%20container%20with%20clean%20interior2.png" alt="Clean 20ft container storage interior in Canterbury for business and personal use" loading="lazy" />
+            <div class="media-frame media-frame--gallery media-fit-cover">
+              <img
+                src="https://images.unsplash.com/photo-1750148279308-f14103b423bf?auto=format&fit=crop&q=80&w=1200"
+                alt="Open shipping container interior"
+                loading="lazy"
+              />
             </div>
           </div>
 
@@ -1510,57 +1504,11 @@
       </div>
     </section>
 
-    <section class="quote-band">
+    <section id="contact">
       <div class="container form-grid">
         <div class="panel">
-          <h2 style="color: var(--yellow); margin-bottom: 10px; font-size: 1.6rem;">Get a Fast Quote</h2>
-          <p class="subcopy" style="margin-bottom: 20px;">Tell us what you need and we’ll get back to you as quickly as possible.</p>
-
-          <form action="https://api.web3forms.com/submit" method="POST" aria-label="Lower quote form">
-            <input type="hidden" name="access_key" value="7c6ab2c6-1523-4081-8c86-6b2134ea1663" />
-            <input type="hidden" name="subject" value="New enquiry from Brightwey website" />
-            <input type="hidden" name="from_name" value="Brightwey Website" />
-            <input type="checkbox" name="botcheck" style="display:none;" tabindex="-1" autocomplete="off" />
-
-            <div class="form-row">
-              <label for="quote-name">Full Name</label>
-              <input id="quote-name" name="name" type="text" placeholder="Your full name" required />
-            </div>
-
-            <div class="form-row">
-              <label for="quote-phone">Phone Number</label>
-              <input id="quote-phone" name="phone" type="tel" placeholder="Your phone number" required />
-            </div>
-
-            <div class="form-row">
-              <label for="quote-email">Email Address</label>
-              <input id="quote-email" name="email" type="email" placeholder="Your email address" required />
-            </div>
-
-            <div class="form-row">
-              <label for="quote-service">Service Needed</label>
-              <select id="quote-service" name="service" required>
-                <option value="">Select a service</option>
-                <option>Container Storage</option>
-                <option>Open Yard Space</option>
-                <option>HGV Parking</option>
-                <option>More Than One Service</option>
-              </select>
-            </div>
-
-            <div class="form-row">
-              <label for="quote-message">What space do you need?</label>
-              <textarea id="quote-message" name="message" placeholder="Tell us what you need, when you need it and how long for."></textarea>
-            </div>
-
-            <button type="submit" class="btn btn-primary">Send Enquiry</button>
-            <div class="form-note">Fast response for container storage, yard space and HGV parking enquiries.</div>
-          </form>
-        </div>
-
-        <div class="contact-card" id="contact">
-          <h3>Contact Brightwey</h3>
-          <p>Call, email or send a quick enquiry to check availability and pricing.</p>
+          <h2 style="color: var(--yellow); margin-bottom: 10px; font-size: 1.6rem;">Contact Brightwey</h2>
+          <p class="subcopy" style="margin-bottom: 20px;">Call, email or use the quote form above to check availability and pricing.</p>
 
           <ul class="contact-list">
             <li><strong>Phone:</strong> <a href="tel:07931086447">07931 086447</a></li>
@@ -1569,7 +1517,16 @@
             <li><strong>Access:</strong> 24/7 access available</li>
           </ul>
 
-          <h3 style="margin-top:24px;">Best Fit For</h3>
+          <div class="hero-actions">
+            <a href="tel:07931086447" class="btn btn-primary">Call Now</a>
+            <a href="mailto:info@brightwey.co.uk" class="btn btn-secondary">Email Us</a>
+          </div>
+        </div>
+
+        <div class="contact-card">
+          <h3>Best Fit For</h3>
+          <p>Our site suits businesses and individuals looking for practical space with straightforward access.</p>
+
           <ul class="contact-list">
             <li>Trades and contractors</li>
             <li>Transport and logistics operators</li>
@@ -1720,7 +1677,6 @@
   </script>
 </body>
 </html>
-
 
 
 
