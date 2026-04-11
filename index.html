@@ -502,12 +502,27 @@
     .service-image,
     .gallery-image,
     .location-image img,
-    .shop-image {
-      width: 100%;
-      object-fit: cover;
-      display: block;
-      transition: transform .65s ease;
-    }
+   .service-image,
+.gallery-image,
+.location-image img,
+.shop-image {
+  width: 100%;
+  display: block;
+  transition: transform .65s ease;
+}
+
+.service-image,
+.gallery-image,
+.location-image img {
+  object-fit: cover;
+}
+
+.shop-image {
+  height: 220px;
+  object-fit: contain;
+  background: #ffffff;
+  padding: 18px;
+}
     .service-image { height: 260px; }
     .gallery-image { height: 250px; }
     .location-image img { min-height: 100%; height: 100%; }
