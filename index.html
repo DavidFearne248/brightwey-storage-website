@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <title>Container Storage Canterbury | Yard Space & HGV Parking | Brightwey Secure Storage</title>
-  <meta name="description" content="Secure container storage, open yard space and HGV parking at Eureka Industrial Estate, Canterbury. Premium presentation, flexible terms, 24/7 access and fast quotes from Brightwey Secure Storage." />
+  <title>Container Storage Canterbury | Yard Space, HGV Parking & Packing Shop | Brightwey Secure Storage</title>
+  <meta name="description" content="Secure container storage, open yard space, HGV parking and packing supplies at Eureka Industrial Estate, Canterbury. Shop padlocks, cardboard boxes, tape and removals essentials from Brightwey Secure Storage." />
   <meta name="theme-color" content="#09111f" />
-  <meta property="og:title" content="Brightwey Secure Storage | Container Storage, Yard Space & HGV Parking Canterbury" />
-  <meta property="og:description" content="Secure container storage, open yard space and HGV parking in Canterbury with flexible terms, monitored access and fast quotes." />
+  <meta property="og:title" content="Brightwey Secure Storage | Storage, Yard Space, HGV Parking & Shop" />
+  <meta property="og:description" content="Secure storage and yard services in Canterbury, plus padlocks, boxes, tape and packing supplies for self storage and removals." />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Brightwey Secure Storage" />
   <meta property="og:image" content="https://raw.githubusercontent.com/DavidFearne248/brightwey-storage-website/main/Row%20of%20shipping%20containers%20in%20daylight2.png" />
@@ -167,7 +167,10 @@
     .quote-card,
     .info-card,
     .trust-badge,
-    .hero-panel {
+    .hero-panel,
+    .shop-card,
+    .shop-callout,
+    .shop-category {
       background: var(--panel);
       border: 1px solid var(--border-soft);
       border-radius: var(--radius);
@@ -458,7 +461,9 @@
     .gallery-grid,
     .testimonials-grid,
     .faq-grid,
-    .quote-grid {
+    .quote-grid,
+    .shop-grid,
+    .shop-category-grid {
       display: grid;
       gap: 24px;
     }
@@ -468,10 +473,13 @@
     .testimonials-grid { grid-template-columns: repeat(3, 1fr); }
     .quote-grid { grid-template-columns: 0.85fr 1.15fr; align-items: start; }
     .faq-grid { grid-template-columns: 1fr 1fr; }
+    .shop-grid { grid-template-columns: 1.15fr 0.85fr; align-items: start; }
+    .shop-category-grid { grid-template-columns: repeat(4, 1fr); margin-top: 24px; }
 
     .service-card,
     .gallery-card,
-    .location-image {
+    .location-image,
+    .shop-card {
       overflow: hidden;
       transition: transform .35s ease, border-color .35s ease, box-shadow .35s ease;
     }
@@ -482,7 +490,10 @@
     .faq-item:hover,
     .location-card:hover,
     .quote-card:hover,
-    .info-card:hover {
+    .info-card:hover,
+    .shop-card:hover,
+    .shop-callout:hover,
+    .shop-category:hover {
       transform: translateY(-4px);
       border-color: rgba(215,180,106,0.2);
       box-shadow: 0 26px 64px rgba(0,0,0,0.32);
@@ -490,7 +501,8 @@
 
     .service-image,
     .gallery-image,
-    .location-image img {
+    .location-image img,
+    .shop-image {
       width: 100%;
       object-fit: cover;
       display: block;
@@ -499,10 +511,12 @@
     .service-image { height: 260px; }
     .gallery-image { height: 250px; }
     .location-image img { min-height: 100%; height: 100%; }
+    .shop-image { height: 220px; }
     .service-card:hover .service-image,
     .gallery-card:hover .gallery-image,
     .location-image:hover img,
-    .site-feature-image:hover img {
+    .site-feature-image:hover img,
+    .shop-card:hover .shop-image {
       transform: scale(1.05);
     }
 
@@ -513,7 +527,10 @@
     .location-card,
     .quote-card,
     .info-card,
-    .cta-box {
+    .cta-box,
+    .shop-body,
+    .shop-callout,
+    .shop-category {
       padding: var(--card-pad);
     }
     .service-body h3,
@@ -521,7 +538,10 @@
     .faq-item h3,
     .location-card h3,
     .quote-card h3,
-    .info-card h3 {
+    .info-card h3,
+    .shop-body h3,
+    .shop-callout h3,
+    .shop-category h3 {
       color: var(--text);
       font-size: 1.3rem;
       margin-bottom: 10px;
@@ -532,11 +552,15 @@
     .faq-item p,
     .location-card p,
     .quote-card p,
-    .info-card p { color: var(--soft); }
+    .info-card p,
+    .shop-body p,
+    .shop-callout p,
+    .shop-category p { color: var(--soft); }
 
     .service-meta,
     .location-points,
-    .contact-list {
+    .contact-list,
+    .shop-points {
       list-style: none;
       display: grid;
       gap: 10px;
@@ -545,14 +569,18 @@
       font-weight: 700;
     }
     .service-tags,
-    .location-tags {
+    .location-tags,
+    .shop-tags {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
       margin-top: 18px;
     }
     .service-tags span,
-    .location-tags span {
+    .location-tags span,
+    .shop-tags span,
+    .price-pill,
+    .shop-category strong {
       background: rgba(255,255,255,0.05);
       border: 1px solid var(--border);
       padding: 9px 13px;
@@ -560,6 +588,10 @@
       font-size: 0.88rem;
       font-weight: 800;
       color: var(--gold-2);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: fit-content;
     }
 
     .site-feature-wrap {
@@ -612,6 +644,27 @@
 
     .reason-card { background: rgba(255,255,255,0.04); }
     .reason-card h3 { color: var(--gold); }
+
+    .shop-card {
+      background: linear-gradient(180deg, rgba(13, 23, 38, 0.88), rgba(9, 16, 28, 0.82));
+    }
+    .shop-callout {
+      background: linear-gradient(180deg, rgba(14, 24, 40, 0.92), rgba(9, 16, 28, 0.88));
+      position: sticky;
+      top: 112px;
+    }
+    .shop-category {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 24px;
+    }
+    .shop-category strong { margin-bottom: 14px; }
+    .shop-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 18px;
+    }
 
     .location-wrap {
       display: grid;
@@ -813,11 +866,13 @@
       .hero-inner,
       .site-feature-wrap,
       .location-wrap,
-      .quote-grid { grid-template-columns: 1fr; }
+      .quote-grid,
+      .shop-grid { grid-template-columns: 1fr; }
       .hero-shell { min-height: auto; }
       .hero-panel { max-width: 520px; }
       .site-feature-image,
       .location-image { min-height: 360px; }
+      .shop-callout { position: static; }
     }
 
     @media (max-width: 1100px) {
@@ -828,7 +883,8 @@
       .faq-grid,
       .footer-grid,
       .trust-grid,
-      .hero-metrics { grid-template-columns: 1fr 1fr; }
+      .hero-metrics,
+      .shop-category-grid { grid-template-columns: 1fr 1fr; }
     }
 
     @media (max-width: 760px) {
@@ -863,13 +919,15 @@
       .trust-grid,
       .hero-metrics,
       .form-split,
-      .info-card-grid { grid-template-columns: 1fr; }
-      .hero-actions { flex-direction: column; }
+      .info-card-grid,
+      .shop-category-grid { grid-template-columns: 1fr; }
+      .hero-actions,
+      .shop-actions { flex-direction: column; }
       .btn { width: 100%; }
       .sticky-cta { left: 12px; right: 12px; bottom: 12px; justify-content: stretch; }
       .sticky-cta a { flex: 1 1 0; text-align: center; }
       .topbar .container { gap: 8px; font-size: 0.78rem; }
-      .service-image, .gallery-image { height: 220px; }
+      .service-image, .gallery-image, .shop-image { height: 220px; }
       .site-feature-image, .location-image { min-height: 240px; }
     }
 
@@ -890,7 +948,7 @@
       <span>•</span>
       <span>Open yard space from £250/week</span>
       <span>•</span>
-      <span>HGV parking from £25/night</span>
+      <span>Shop padlocks, boxes & tape</span>
     </div>
   </div>
 
@@ -906,6 +964,7 @@
 
       <nav aria-label="Primary navigation">
         <a href="#services">Services</a>
+        <a href="#shop">Shop</a>
         <a href="#features">Site</a>
         <a href="#gallery">Gallery</a>
         <a href="#location">Location</a>
@@ -928,13 +987,12 @@
           <div class="hero-inner">
             <div class="hero-copy">
               <span class="eyebrow">Premium commercial storage in Canterbury</span>
-              <h1>Secure container storage, yard space and <span class="accent">HGV parking</span> at Eureka Industrial Estate</h1>
-              
-              <p class="hero-subheadline">A monitored site for businesses and individuals who need practical access, reliable space and a much stronger first impression.</p>
+              <h1>Secure container storage, yard space, <span class="accent">HGV parking</span> and moving supplies</h1>
+              <p class="hero-subheadline">A monitored site for businesses and individuals who need practical access, reliable space and the option to buy essential self storage and removals supplies in one place.</p>
 
               <div class="hero-actions">
-                <a href="#quote" class="btn btn-primary">Check Availability</a>
-                <a href="tel:07931086447" class="btn btn-secondary">Call 07931 086447</a>
+                <a href="#shop" class="btn btn-primary">Shop Supplies</a>
+                <a href="#quote" class="btn btn-secondary">Check Availability</a>
               </div>
 
               <div class="hero-metrics">
@@ -947,8 +1005,8 @@
                   <span>Monitored site</span>
                 </div>
                 <div class="metric">
-                  <strong>HGV</strong>
-                  <span>Commercial access</span>
+                  <strong>Shop</strong>
+                  <span>Packing essentials</span>
                 </div>
                 <div class="metric">
                   <strong>Fast</strong>
@@ -959,12 +1017,12 @@
 
             <aside class="hero-panel">
               <h2>Services at a glance</h2>
-              <p></p>
+              <p>Storage space and everyday removals supplies from one Canterbury site.</p>
 
               <ul class="hero-panel-list">
                 <li><span>Container Storage</span><strong>From £35/week</strong></li>
                 <li><span>Open Yard Space</span><strong>From £250/week</strong></li>
-                <li><span>HGV Parking</span><strong>From £25/night</strong></li>
+                <li><span>Shop Supplies</span><strong>From £2.99</strong></li>
               </ul>
 
               <div class="hero-panel-note">
@@ -972,7 +1030,7 @@
                 Secure commercial site with practical access.
               </div>
 
-              <a href="#quote" class="btn btn-primary" style="width:100%;">Request Availability</a>
+              <a href="#shop" class="btn btn-primary" style="width:100%;">Browse Shop</a>
             </aside>
           </div>
         </div>
@@ -994,8 +1052,8 @@
           <span>Short or longer stays</span>
         </div>
         <div class="trust-badge">
-          <strong>Clear Pricing</strong>
-          <span>Simple starting rates</span>
+          <strong>Storage Shop</strong>
+          <span>Locks, boxes and tape</span>
         </div>
         <div class="trust-badge">
           <strong>Canterbury</strong>
@@ -1008,8 +1066,8 @@
       <div class="container">
         <div class="section-head">
           <div class="section-kicker">Services</div>
-          <h2 class="section-title"></h2>
-          <p class="section-subtitle"></p>
+          <h2 class="section-title">Flexible space for storage, vehicles and operations</h2>
+          <p class="section-subtitle">Professional commercial space for everyday use, whether you need secure container storage, open yard space or regular HGV parking.</p>
         </div>
 
         <div class="services-grid">
@@ -1070,6 +1128,149 @@
       </div>
     </section>
 
+    <section id="shop" class="reveal">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-kicker">Storage & Removals Shop</div>
+          <h2 class="section-title">Everything customers need before they move in</h2>
+          <p class="section-subtitle">A clean, premium-looking shop section for self storage and removals customers, featuring popular essentials like CISA padlocks, cardboard boxes, tape and protective packing materials.</p>
+        </div>
+
+        <div class="shop-grid">
+          <div class="shop-products">
+            <div class="services-grid" style="grid-template-columns: repeat(2, 1fr);">
+              <article class="shop-card">
+                <img class="shop-image" src="data:image/jpeg;base64,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" alt="CISA security padlock" loading="lazy" />
+                <div class="shop-body">
+                  <div class="price-pill">£24.99</div>
+                  <h3>CISA Security Padlock</h3>
+                  <p>Trusted storage lock option for customers who want solid security for their unit from day one.</p>
+                  <div class="shop-tags">
+                    <span>High security</span>
+                    <span>Popular choice</span>
+                  </div>
+                  <ul class="shop-points">
+                    <li>Ideal for self storage containers and units</li>
+                    <li>Strong metal body with secure locking mechanism</li>
+                    <li>Great upsell at move-in</li>
+                  </ul>
+                  <div class="shop-actions">
+                    <a href="#quote" class="btn btn-primary">Enquire to Buy</a>
+                  </div>
+                </div>
+              </article>
+
+              <article class="shop-card">
+                <img class="shop-image" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABAAAAAQACAIAAADwf7zUAADuQ2NhQlgAAO5DanVtYgAAAB5qdW1kYzJwAAAAAAABAAQAAAABAAABnAAAAPQAAAARanVtZGF0YQAAAAAABAAAACQAAAAEAAAABAAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAL/7QAsUGhvdG9zaG9wIDMuMAA4QklNBAQAAAAAAHAcAnABAAIAAAASAB0AFQAyADAAMgA6ADAAOAA6ADIAMgAdAAUAMAAwADoAMAAwADoAMAAwAAAAAA7/7gAOQWRvYmUAZMAAAAAB/8AAEQgEAAQAAwEiAAIRAQMRAf/EABQAAQAAAAAAAAAAAAAAAAAAAAb/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAABQX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCFAB//2Q==" alt="Brightwey branded cardboard storage boxes" loading="lazy" />
+                <div class="shop-body">
+                  <div class="price-pill">From £2.99</div>
+                  <h3>Cardboard Boxes</h3>
+                  <p>Strong moving and storage boxes in practical sizes for household, office and business use.</p>
+                  <div class="shop-tags">
+                    <span>Small</span>
+                    <span>Medium</span>
+                    <span>Large</span>
+                  </div>
+                  <ul class="shop-points">
+                    <li>Easy to stack and label</li>
+                    <li>Suitable for removals and storage</li>
+                    <li>Available individually or in bundles</li>
+                  </ul>
+                  <div class="shop-actions">
+                    <a href="#quote" class="btn btn-primary">Enquire to Buy</a>
+                  </div>
+                </div>
+              </article>
+
+              <article class="shop-card">
+                <img class="shop-image" src="tape.webp" alt="Packing tape rolls" loading="lazy" />
+                <div class="shop-body">
+                  <div class="price-pill">£3.49</div>
+                  <h3>Packing Tape</h3>
+                  <p>Heavy-duty tape for sealing moving boxes properly so customers can pack quickly and confidently.</p>
+                  <div class="shop-tags">
+                    <span>Strong hold</span>
+                    <span>Easy sealing</span>
+                  </div>
+                  <ul class="shop-points">
+                    <li>Ideal for removals and long-term storage</li>
+                    <li>Useful single roll add-on at checkout</li>
+                    <li>Great companion to every box order</li>
+                  </ul>
+                  <div class="shop-actions">
+                    <a href="#quote" class="btn btn-primary">Enquire to Buy</a>
+                  </div>
+                </div>
+              </article>
+
+              <article class="shop-card">
+                <img class="shop-image" src="bubble-wrap.webp" alt="Bubble wrap rolls" loading="lazy" />
+                <div class="shop-body">
+                  <div class="price-pill">£8.99</div>
+                  <h3>Bubble Wrap Roll</h3>
+                  <p>Protective wrap for fragile items, electronics, glassware and anything that needs cushioning during a move.</p>
+                  <div class="shop-tags">
+                    <span>Protective</span>
+                    <span>Fragile items</span>
+                  </div>
+                  <ul class="shop-points">
+                    <li>Ideal for home and business moves</li>
+                    <li>Useful for packing valuables safely</li>
+                    <li>Simple upgrade for storage customers</li>
+                  </ul>
+                  <div class="shop-actions">
+                    <a href="#quote" class="btn btn-primary">Enquire to Buy</a>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+
+          <aside class="shop-callout">
+            <div class="section-kicker">Shop Overview</div>
+            <h3>Perfect add-ons for self storage and removals</h3>
+            <p>Use this section to generate extra sales from customers already visiting your storage site. It is designed to feel premium, simple and easy to scan.</p>
+
+            <ul class="shop-points">
+              <li>CISA padlocks for security-conscious customers</li>
+              <li>Cardboard boxes in multiple sizes</li>
+              <li>Packing tape, bubble wrap and wrap bundles</li>
+              <li>Ideal for storage move-ins and removals jobs</li>
+              <li>Easy to expand with more products later</li>
+            </ul>
+
+            <div class="shop-actions">
+              <a href="#quote" class="btn btn-primary">Ask About Stock</a>
+              <a href="tel:07931086447" class="btn btn-secondary">Call to Order</a>
+            </div>
+          </aside>
+        </div>
+
+        <div class="shop-category-grid">
+          <div class="shop-category">
+            <strong>Security</strong>
+            <h3>Locks & padlocks</h3>
+            <p>Add more lock types, keys and security accessories here as your range grows.</p>
+          </div>
+          <div class="shop-category">
+            <strong>Boxes</strong>
+            <h3>Moving box bundles</h3>
+            <p>Offer starter packs for studio, flat, house move or small business storage.</p>
+          </div>
+          <div class="shop-category">
+            <strong>Packing</strong>
+            <h3>Tape, wrap & labels</h3>
+            <p>Display the small extras customers always need at the last minute.</p>
+          </div>
+          <div class="shop-category">
+            <strong>Removals</strong>
+            <h3>Protective materials</h3>
+            <p>Add blankets, mattress covers, sofa covers and fragile packing kits later.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section id="features" class="reveal">
       <div class="container">
         <div class="site-feature-wrap">
@@ -1080,7 +1281,7 @@
           <div class="info-card">
             <div class="section-kicker">The Site</div>
             <h3 style="font-size:clamp(2rem,3vw,3rem); line-height:1.04; margin-bottom:14px;">Built for practical, everyday commercial use</h3>
-            <p></p>
+            <p>From secure storage and vehicle access to convenient packing supply sales, the site is designed to support real-world customer needs.</p>
 
             <div class="info-card-grid">
               <div class="info-pill">Wide access for vans and HGVs</div>
@@ -1100,7 +1301,7 @@
         <div class="section-head">
           <div class="section-kicker">Why Brightwey</div>
           <h2 class="section-title">Why serious businesses choose us</h2>
-          <p class="section-subtitle"></p>
+          <p class="section-subtitle">A professional environment, practical access and a clear offer that helps customers say yes faster.</p>
         </div>
 
         <div class="reasons-grid">
@@ -1117,8 +1318,8 @@
             <p>Designed for real business use, not just basic storage.</p>
           </div>
           <div class="reason-card">
-            <h3>Flexible setup</h3>
-            <p>Take the space you need now and adjust as requirements change.</p>
+            <h3>Extra revenue potential</h3>
+            <p>Sell moving and packing essentials alongside storage enquiries.</p>
           </div>
         </div>
       </div>
@@ -1128,8 +1329,8 @@
       <div class="container">
         <div class="section-head">
           <div class="section-kicker">Gallery</div>
-          <h2 class="section-title"></h2>
-          <p class="section-subtitle"></p>
+          <h2 class="section-title">See the site and the standard of presentation</h2>
+          <p class="section-subtitle">A smarter-looking storage site inspires more confidence and helps convert enquiries into bookings.</p>
         </div>
 
         <div class="gallery-grid">
@@ -1170,7 +1371,7 @@
             </div>
 
             <div class="map-box">
-              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2494.172387880168!2d1.1363740761721215!3d51.307952671768554!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47deb5aa6d1c1f99%3A0xc5422e592a39da80!2sBrightwey%20Secure%20Storage%20%26%20Yard%20Space!5e0!3m2!1sen!2suk!4v1775410098364!5m2!1sen!2suk" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Map showing Brightwey Secure Storage location"></iframe>
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2494.172387880168!2d1.1363740761721215!3d51.307952671768554!2m3!1f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47deb5aa6d1c1f99%3A0xc5422e592a39da80!2sBrightwey%20Secure%20Storage%20%26%20Yard%20Space!5e0!3m2!1sen!2suk!4v1775410098364!5m2!1sen!2suk" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Map showing Brightwey Secure Storage location"></iframe>
             </div>
           </div>
 
@@ -1185,8 +1386,8 @@
       <div class="container">
         <div class="section-head">
           <div class="section-kicker">Trusted by Local Businesses</div>
-          <h2 class="section-title"></h2>
-          <p class="section-subtitle"></p>
+          <h2 class="section-title">Built for practical, repeat use</h2>
+          <p class="section-subtitle">The site works for contractors, operators, growing businesses and anyone who values simple access and a professional setup.</p>
         </div>
 
         <div class="testimonials-grid">
@@ -1221,8 +1422,8 @@
     <section class="reveal">
       <div class="container">
         <div class="cta-box">
-          <h2>Check availability today</h2>
-          <p>Get a quick response and secure the right space for your business without unnecessary back and forth.</p>
+          <h2>Check availability or ask about shop stock today</h2>
+          <p>Get a quick response for storage space, yard availability, HGV parking or packing supplies.</p>
           <div class="hero-actions" style="justify-content:center; margin-top:0;">
             <a href="#quote" class="btn btn-primary">Check Availability</a>
             <a href="tel:07931086447" class="btn btn-secondary">Call 07931 086447</a>
@@ -1236,7 +1437,7 @@
         <div class="info-card">
           <div class="section-kicker">Request a Quote</div>
           <h3 style="font-size:clamp(2rem,3vw,3rem); line-height:1.04; margin-bottom:14px;">Tell us what you need</h3>
-          <p class="subcopy"></p>
+          <p class="subcopy">Let customers ask about storage space, vehicle parking or shop items from one form.</p>
 
           <ul class="contact-list">
             <li><strong>Phone:</strong> <a href="tel:07931086447">07931 086447</a></li>
@@ -1253,7 +1454,7 @@
 
         <div class="quote-card">
           <h3>Request availability</h3>
-          <p class="subcopy" style="margin-bottom:18px;">Tell us what kind of space you need, when you need it and how long for.</p>
+          <p class="subcopy" style="margin-bottom:18px;">Tell us what kind of space or supplies you need, when you need them and how long for.</p>
 
           <form action="https://api.web3forms.com/submit" method="POST" aria-label="Quote form">
             <input type="hidden" name="access_key" value="7c6ab2c6-1523-4081-8c86-6b2134ea1663" />
@@ -1284,6 +1485,7 @@
                   <option>Container Storage</option>
                   <option>Open Yard Space</option>
                   <option>HGV Parking</option>
+                  <option>Shop Products</option>
                   <option>More Than One Service</option>
                 </select>
               </div>
@@ -1291,11 +1493,11 @@
 
             <div class="form-row">
               <label for="message">What do you need?</label>
-              <textarea id="message" name="message" placeholder="For example: 1 container from next month, open yard space for plant, or overnight HGV parking."></textarea>
+              <textarea id="message" name="message" placeholder="For example: 1 container from next month, 10 medium boxes, 2 CISA padlocks, bubble wrap and tape."></textarea>
             </div>
 
             <button type="submit" class="btn btn-primary">Request Availability</button>
-            <div class="form-note">We aim to respond quickly to container storage, yard space and HGV parking enquiries.</div>
+            <div class="form-note">We aim to respond quickly to container storage, yard space, HGV parking and shop enquiries.</div>
           </form>
         </div>
       </div>
@@ -1305,8 +1507,8 @@
       <div class="container">
         <div class="section-head">
           <div class="section-kicker">FAQ</div>
-          <h2 class="section-title"></h2>
-          <p class="section-subtitle"></p>
+          <h2 class="section-title">Answers to common questions</h2>
+          <p class="section-subtitle">A few quick answers about storage, availability and buying packing supplies from site.</p>
         </div>
 
         <div class="faq-grid">
@@ -1319,12 +1521,12 @@
             <p>Yes. We offer flexible options depending on the type of space you need and current availability.</p>
           </div>
           <div class="faq-item">
-            <h3>Can I enquire about more than one service?</h3>
-            <p>Yes. If you need a combination of storage, yard space and HGV parking, include that in your enquiry.</p>
+            <h3>Can I buy boxes and padlocks as well?</h3>
+            <p>Yes. Customers can enquire about padlocks, boxes, tape, bubble wrap and other removals essentials.</p>
           </div>
           <div class="faq-item">
             <h3>How do I check availability?</h3>
-            <p>Call, email or use the quote form on this page and we can confirm the current options.</p>
+            <p>Call, email or use the quote form on this page and we can confirm current space or product options.</p>
           </div>
         </div>
       </div>
@@ -1336,7 +1538,7 @@
       <div class="footer-grid">
         <div>
           <h4>Brightwey Secure Storage</h4>
-          <p>Premium-feeling container storage, open yard space and HGV parking in Canterbury.</p>
+          <p>Premium-feeling container storage, open yard space, HGV parking and packing supplies in Canterbury.</p>
         </div>
 
         <div>
@@ -1349,8 +1551,8 @@
         <div>
           <h4>Quick Links</h4>
           <a href="#services">Services</a>
+          <a href="#shop">Shop</a>
           <a href="#gallery">Gallery</a>
-          <a href="#location">Location</a>
           <a href="#quote">Check Availability</a>
         </div>
       </div>
@@ -1361,7 +1563,7 @@
 
   <div class="sticky-cta">
     <a class="sticky-call" href="tel:07931086447">Call Now</a>
-    <a class="sticky-quote" href="#quote">Get Quote</a>
+    <a class="sticky-quote" href="#shop">Shop Supplies</a>
   </div>
 
   <script>
